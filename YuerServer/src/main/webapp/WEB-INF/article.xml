@@ -1,0 +1,25 @@
+<root>
+	<fonts>
+		<font name="chaocuhei" path="D:/flashFont/chaocuhei.swf" />
+		<font name="cuhuoyi" path="D:/flashFont/cuhuoyi.swf" />
+		<font name="cuqian" path="D:/flashFont/cuqian.swf" />
+		<font name="dabiaosong" path="D:/flashFont/dabiaosong.swf" />
+		<font name="dahei" path="D:/flashFont/dahei.swf" />
+		<font name="heiti" path="D:/flashFont/heiti.swf"/>
+		<font name="jianzhi" path="D:/flashFont/jianzhi.swf" />
+		<font name="katong" path="D:/flashFont/katong.swf" />
+		<font name="lantinghei" path="D:/flashFont/lantinghei.swf" />
+		<font name="hupo" path="D:/flashFont/hupo.swf"/>
+		<font name="zhanbihei" path="D:/flashFont/zhanbihei.swf" />
+		<font name="zhiyiti" path="D:/flashFont/zhiyiti.swf" />
+		<font name="zhunyuan" path="D:/flashFont/zhunyuan.swf" />
+		<font name="zongyi" path="D:/flashFont/zongyi.swf" />
+		<font name="songti" path="D:/flashFont/songti.swf" />
+		<font name="caohuang" path="D:/flashFont/caohuang.swf"/>
+		<font name="kaiti" path="D:/flashFont/kaiti.swf"/>
+		<font name="shuti" path="D:/flashFont/shuti.swf"/>
+		<font name="xingshu" path="D:/flashFont/xingshu.swf"/>
+		<font name="libian" path="D:/flashFont/libian.swf"/>
+		<font name="xiyuan" path="D:/flashFont/xiyuan.swf"/>
+	</fonts>
+</root>

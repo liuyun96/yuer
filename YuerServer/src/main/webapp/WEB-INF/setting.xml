@@ -1,0 +1,104 @@
+<config>
+	<!--（必须） 指定应用的根package，所有内部自动注入都依赖于此package名称，请设置准确。 -->
+	<package>com.own.yuer</package>
+	<license>d3c25211c89172bc97ec7bf1cc1e7611038e8619c9c80a722bf0e97f3f1aa85334518a9908e1ffda4e15f01a6e741a75f06b6ebb380205bdf092e36d9e70139f60ed89fd0cee87026c6a434d596c65f348bc1bb80a7f6155dc82d7f87ba4141c8c4a0a063418802d58d1bc215d299d395ba0bba6ff716550e0546a802cc8d3e972aaf8b29dabda262615d65fc949b8cb8bf3e9f00e18629d30c25444cd8695947d084ee676f19073b061fd7c9a7c2dd968d615be327fcd149389745488bc827d23f86296a0125ab37f47010b9dbccdf82f4556f7af85bdbff4dfe58fc9e604ea18436221000ba8853881dac3eb1ce749ad01917a7f8a75b0268da4766cd8fd8c6b6467e0ada85c24e469e929264b86074973b1d13080a484c0f0cd1c59e16052ef6c159756074a2232c149d7a7d5a12425b5c4bdff11837323b5f97c6d6fc92b9b4af425408bc3a1c40d8219c0285153e7c97a04da57d2e99a7603fc10c4fc0b4f4ca115e66e5ef11986b3cf142081f6d6fb9522a28e9501d53338a525a47791</license>
+	<web>
+		<!--（可选，缺省为root目录下的upload目录，大小为4M) 设置上传文件存放的路径和上传文件的最大尺寸 -->
+		<upload>
+			<directory></directory>
+			<max-size>2096</max-size>
+		</upload>
+		<!-- (可选)设置Request的编码类型。 -->
+		<charset>utf-8</charset>
+		<long-dateformat>yyyy-MM-dd HH:mm:ss</long-dateformat>
+		<short-dateformat>yyyy-MM-dd</short-dateformat>
+		<!-- (可选，缺省使用cn.vivame.session.MemHttpSession,你还可以选择MemCacheHttpSession进行分布式Session存储，缺省超时30分钟) 
+			HttpSession的设置。 -->
+		<!-- 
+		<session>
+			<class>cn.quickj.session.SimpleCache</class>
+			<timeout>7200</timeout>
+		</session>
+		 -->
+		<session>
+			<class>cn.quickj.session.RedisHttpSession</class>
+			<timeout>7200</timeout>
+		</session>
+		<!-- 当应用直接输入根路径的时候，缺省跳转到指定的action中。 -->
+		<defaultUri>/index</defaultUri>
+	</web>
+	<plugins>
+		<plugin>
+			<class>cn.quickj.security.SecurityPlugin
+			</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.simpleui.SimpleUIPlugin
+			</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.ui.DefaultUIPlugin
+			</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.logger.DynamicLoggerPlugin
+			</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.systeminfo.SystemInfoPlugin
+			</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.imexport.ImportExportPlugin</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.extui.ExtuiPlugin</class>
+		</plugin>
+		<plugin>
+			<class>cn.quickj.dict.DictPlugin</class>
+		</plugin>
+	</plugins>
+	<!--( 可选，缺省使用SimpleCache，可以使用MemCache)cache类的设置及参数。 -->
+	<!-- 
+ 	<cache>
+		<class>cn.quickj.cache.SimpleCache</class>
+		<param>capacity=50000</param>
+	</cache>
+	 -->
+	<cache> 
+		<class>cn.quickj.cache.RedisCache</class>
+		<param>{min:5,max:100,idle:10000,maxWait:5000,host:"127.0.0.1",port:6379,master:true}</param> 
+	</cache> 
+	<!-- 使用memCache的设置方法。参数形式为：Cache服务器的地址,权重 -->
+	<!-- cache> <class>cn.vivame.cache.MemCache</class> <param>[127.0.0.1:11211,3],[127.0.0.1:11211,1]</param> 
+		</cache -->
+	<!-- 数据库设置 -->
+	<database>
+		<!-- 数据库的表前缀(暂时没有使用) -->
+		<prefix />
+		<development>
+			<driver>com.mysql.jdbc.Driver</driver>
+			<url>jdbc:mysql://localhost:3306/itv?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+			</url>
+			<user>root</user>
+			<password>baijunli</password>
+			<pool>
+				<maxActive>10</maxActive>
+				<initActive>2</initActive>
+				<maxIdle>1800</maxIdle>
+			</pool>
+		</development>
+		<production>
+			<driver>com.mysql.jdbc.Driver</driver>
+			<url>jdbc:mysql://localhost:3306/itv?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8
+			</url>
+			<user>root</user>
+			<password>baijunli</password>
+			<pool>
+				<maxActive>10</maxActive>
+				<initActive>2</initActive>
+				<maxIdle>1800</maxIdle>
+			</pool>
+		</production>
+	</database>
+</config>
