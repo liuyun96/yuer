@@ -4,7 +4,7 @@ import cn.quickj.extui.action.ExtBaseAction;
 
 public class WebAction extends ExtBaseAction {
 
-	private String pagePath = "web/";
+	private String pagePath = "web1/";
 
 	public void load() {
 		render(pagePath + "load.html");
