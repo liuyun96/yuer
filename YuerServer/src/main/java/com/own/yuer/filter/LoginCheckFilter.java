@@ -41,7 +41,7 @@ public class LoginCheckFilter implements ActionFilter {
 		}
 		// 用户领券
 		if (uri.startsWith("/itv") || uri.startsWith("/index/")
-				|| uri.startsWith("/index2/")) {
+				|| uri.startsWith("/index2/")|| uri.startsWith("/web/")) {
 			return ActionFilter.NEED_PROCESS;
 		}
 		// 判断是否买家操作

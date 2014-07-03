@@ -3,4 +3,7 @@
     <string name="app_name">好妈咪育儿</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="login_label_1">我是:</string>
+    <string name="login_label_2">宝宝生日:</string>
+    <string name="login_label_3">宝宝性别:</string>
 </resources>

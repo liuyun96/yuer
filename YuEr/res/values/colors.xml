@@ -1,5 +1,9 @@
 <resources>
 
-    <color name="black_overlay">#66000000</color>
+    <color name="login_bg">#FEF2CA</color>
+    <color name="login_text">#715F3A</color>
+    <color name="red">#FF7987</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
 </resources>
