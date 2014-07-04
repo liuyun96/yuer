@@ -10,15 +10,21 @@
         android:layout_above="@id/toolbar"
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="好妈咪育儿"
+            android:textScaleX="1.5"
+            android:textSize="20dp" />
         <ListView
             android:id="@+id/lv"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="-3.0dip"
             android:layout_marginTop="-1.0dip"
             android:background="#ffffffff" />
     </LinearLayout>
-    <RelativeLayout
+    <LinearLayout
         android:id="@id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +37,7 @@
             android:text="好妈咪育儿"
             android:textScaleX="1.5"
             android:textSize="20dp" />
-    </RelativeLayout>
+    </LinearLayout>
     <include
         android:id="@id/toolbar"
         android:layout_width="fill_parent"
