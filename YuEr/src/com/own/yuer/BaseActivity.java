@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 public class BaseActivity extends Activity {
-	private static String currentActivity;
 
 	public void defaultFinish() {
 		super.finish();
