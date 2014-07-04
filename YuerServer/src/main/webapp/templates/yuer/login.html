@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel - jQuery Mobile Demos</title>
+<link rel="stylesheet" href="${ctx}/jquery1.4.2/jquery.mobile-1.4.2.min.css">
+<script src="${ctx}/jquery1.4.2/jquery.js"></script>
+<script src="${ctx}/jquery1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<style type="text/css">
+	#login label{
+		font-size: 35px;
+		text-align: left;
+		color: olive;
+		font-weight: bold;
+	}
+	.first{
+		margin-right: 10%;
+	}
+	img{
+		width: 40%;
+	}
+</style>
+</head>
+<body style="text-align: left;">
+	<form action="">
+		<div style="font-size: 35px;padding-top:20px;padding-left: 15%;width: 70%;" id="login">
+			<div>
+				<div>
+					<label for="text-basic">我是：</label> 
+				</div>
+				<div>
+					<a href="#" class="first"><img
+					src="${ctx}/images/login_bb.png" /></a><a href="#"><img
+					src="${ctx}/images/login_mm.png" /></a>
+				</div>
+			</div>
+			<div>
+				<label for="text-basic">宝贝生日:</label> <input type="text"
+					name="text-basic" id="text-basic" value="">
+			</div>
+			<div>
+				<label for="text-basic">宝贝性别：</label>
+				<a href="#" class="first"><img src="${ctx}/images/login_boy.png" /></a><a href="#"><img
+					src="${ctx}/images/login_girl.png" /></a>
+			</div>
+			<div style="padding-top: 5%;text-align: center;">
+				<span><a href="#"><img src="${ctx}/images/login_start.png" /></a></span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

@@ -38,6 +38,7 @@
         <activity
             android:name="com.own.yuer.IndexActivity"
             android:configChanges="keyboardHidden|navigation|orientation"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.own.yuer.SearchActivity"
