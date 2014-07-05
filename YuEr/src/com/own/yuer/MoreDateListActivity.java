@@ -8,6 +8,7 @@ import java.util.TimerTask;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,7 +25,7 @@ public class MoreDateListActivity extends BaseActivity implements
 
 	// ListView的Adapter
 	private SimpleAdapter mSimpleAdapter;
-	private ListView lv;
+	private ListView listView;
 	private Button bt;
 	private ProgressBar pg;
 	private ArrayList<HashMap<String, String>> list;
@@ -37,6 +38,9 @@ public class MoreDateListActivity extends BaseActivity implements
 	private int lastVisibleIndex;
 	private int keyBackClickCount = 0;
 
+	private MyView lv;
+	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,7 +50,7 @@ public class MoreDateListActivity extends BaseActivity implements
 
 	public void initData() {
 		MaxDateNum = 22; // 设置最大数据条数
-		lv = (ListView) findViewById(R.id.lv);
+		listView = (ListView) findViewById(R.id.lv);
 		// 实例化底部布局
 		moreView = getLayoutInflater().inflate(R.layout.moredata, null);
 
@@ -68,10 +72,10 @@ public class MoreDateListActivity extends BaseActivity implements
 						R.id.tv_title, R.id.tv_content });
 
 		// 加上底部View，注意要放在setAdapter方法前
-		lv.addFooterView(moreView);
-		lv.setAdapter(mSimpleAdapter);
+		listView.addFooterView(moreView);
+		listView.setAdapter(mSimpleAdapter);
 		// 绑定监听器
-		lv.setOnScrollListener(this);
+		listView.setOnScrollListener(this);
 		bt.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -93,7 +97,7 @@ public class MoreDateListActivity extends BaseActivity implements
 
 	public void loadItem(View view) {
 		Intent localIntent = new Intent();
-		///localIntent.setClass(this, ItemActivity.class);
+		// /localIntent.setClass(this, ItemActivity.class);
 		localIntent.setClass(this, ViewFlipperActivity.class);
 		localIntent.putExtra("id", view.getId());
 		startActivity(localIntent);
@@ -129,7 +133,7 @@ public class MoreDateListActivity extends BaseActivity implements
 
 		// 所有的条目已经和最大条数相等，则移除底部的View
 		if (totalItemCount == MaxDateNum + 1) {
-			lv.removeFooterView(moreView);
+			listView.removeFooterView(moreView);
 			Toast.makeText(this, "数据全部加载完成，没有更多数据！", Toast.LENGTH_LONG).show();
 		}
 
@@ -157,20 +161,19 @@ public class MoreDateListActivity extends BaseActivity implements
 		}
 
 	}
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if(keyCode==KeyEvent.KEYCODE_BACK){
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			switch (keyBackClickCount++) {
 			case 0:
-				//showToast(this.getApplication().getApplicationContext(), "");
-				Toast.makeText(this,"再点一下退出",
-						Toast.LENGTH_SHORT).show();
+				// showToast(this.getApplication().getApplicationContext(), "");
+				Toast.makeText(this, "再点一下退出", Toast.LENGTH_SHORT).show();
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask() {
 					@Override
 					public void run() {
-						keyBackClickCount=0;
+						keyBackClickCount = 0;
 					}
 				}, 3000);
 				break;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/myimg"
+        android:scaleType="fitXY"
+        android:layout_width="fill_parent"
+        android:layout_height="262px" />  
+  
+    <TextView
+         android:id="@+id/mytitle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="我的标题"
+        android:textColor="@color/white"
+        android:textSize="18dp" 
+        android:layout_marginTop="-35dp"
+        android:padding="5dp"
+        android:paddingLeft="10dp" />
+
+</LinearLayout>

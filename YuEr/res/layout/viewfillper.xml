@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ViewFlipper
+        android:id="@+id/mflipper"
+        android:layout_width="fill_parent"
+        android:layout_height="262px"
+        android:inAnimation="@anim/push_left_in"
+        android:outAnimation="@anim/push_left_out" >
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10px"
+        android:paddingTop="10px" >
+
+        <ImageView
+            android:id="@id/index_btn_1"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_1" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_2"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_2" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_3"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_3" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_4"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="10px"
+        android:paddingTop="10px" >
+
+        <ImageView
+            android:id="@id/index_btn_5"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_5" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_6"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_6" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_7"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_7" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_btn_8"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickbtn"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_btn_8" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:text="好文推荐"
+        android:paddingTop="10px"
+        android:paddingBottom="10px"
+        android:textSize="30px"
+        android:textColor="@color/black"
+        android:textDirection="ltr"
+        android:layout_width="200px" />
+
+</LinearLayout>

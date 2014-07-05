@@ -11,8 +11,20 @@
      <item type="id" name="index_menu_3">false</item>
      <item type="id" name="index_menu_4">false</item>
      
+     <item type="id" name="index_btn_1">false</item>
+     <item type="id" name="index_btn_2">false</item>
+     <item type="id" name="index_btn_3">false</item>
+     <item type="id" name="index_btn_4">false</item>
+     
+     <item type="id" name="index_btn_5">false</item>
+     <item type="id" name="index_btn_6">false</item>
+     <item type="id" name="index_btn_7">false</item>
+     <item type="id" name="index_btn_8">false</item>
+     
+     
      <item type="id" name="tuan_back">false</item>
      
      <item type="id" name="my_fav">false</item>
+     
      
 </resources>

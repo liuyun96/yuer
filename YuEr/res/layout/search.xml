@@ -2,20 +2,34 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffffffff" >
+    android:background="@color/white" >
 
     <LinearLayout
         android:id="@id/titlebar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/search_head" >
+        android:background="@drawable/search_head"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="450px"
+            android:layout_height="35dp"
+            android:layout_marginLeft="110px"
+            android:hint="请输入关键字搜索"
+            android:maxLines="1"
+            android:textColor="@color/title_e1" >
+        </EditText>
+
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50px"
             android:text="确定"
-            android:textColor="@color/red"
-            android:textSize="20px" />
+            android:textColor="@color/white"
+            android:textSize="35px" />
     </LinearLayout>
 
     <LinearLayout
@@ -24,9 +38,10 @@
         android:layout_above="@id/toolbar"
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
+
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="热门搜索"
             android:textColor="@color/red"
             android:textSize="20px" />

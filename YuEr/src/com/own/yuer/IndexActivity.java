@@ -5,19 +5,28 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 public class IndexActivity extends BaseActivity implements OnScrollListener {
 
@@ -35,11 +44,14 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 	// 最后可见条目的索引
 	private int lastVisibleIndex;
 	private int keyBackClickCount = 0;
+	private ViewFlipper flipper;
+	private Activity mActivity;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		this.mActivity = this;
 		initData();
 	}
 
@@ -68,6 +80,7 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 
 		// 加上底部View，注意要放在setAdapter方法前
 		lv.addFooterView(moreView);
+		initViewFilppper(lv);
 		lv.setAdapter(mSimpleAdapter);
 		// 绑定监听器
 		lv.setOnScrollListener(this);
@@ -88,6 +101,76 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 				}, 2000);
 			}
 		});
+	}
+
+	/**
+	 * 加载推荐位
+	 * 
+	 * @param lv
+	 */
+	private void initViewFilppper(ListView lv) {
+		
+		LinearLayout listTop = (LinearLayout) LayoutInflater.from(this)
+				.inflate(R.layout.viewfillper, null);
+		flipper = (ViewFlipper) listTop.findViewById(R.id.mflipper);
+		// flipper.setBackgroundColor(Color.RED);
+		Log.d("debug", flipper.getTop()+"");
+		if (flipper != null) {
+			flipper.setFlipInterval(3000);
+			flipper.startFlipping();
+		}
+		for(int i=0;i<3;i++){
+			final myImageView img = new myImageView(mActivity);
+			img.setId(i);
+			img.setTitle("test"+i);
+			img.setImg(R.drawable.index_flip);
+			flipper.addView(img);
+		}
+		lv.addHeaderView(listTop);
+	}
+	
+	// 自定义滚动图片的view
+	class myImageView extends View {
+		View view;
+		ImageView img;
+		TextView title;
+		int ID;
+
+		public myImageView(Context context) {
+			super(context);
+			LayoutInflater inflater = (LayoutInflater) mActivity
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			view = inflater.inflate(R.layout.myimage, null);
+			img = (ImageView) view.findViewById(R.id.myimg);
+			title = (TextView) view.findViewById(R.id.mytitle);
+
+		}
+
+		public View getView() {
+			return view;
+		}
+
+		public void setImg(int id) {
+			img.setImageResource(id);
+		}
+
+		public void setImg(Drawable d) {
+
+			img.setImageDrawable(d);
+		}
+
+		public void setTitle(String title) {
+			this.title.setText(title);
+		}
+
+		public void setId(int id) {
+			ID = id;
+		}
+
+		public int getId() {
+			return ID;
+		}
+
 	}
 
 	public void loadItem(View view) {
@@ -156,7 +239,6 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 		}
 
 	}
-
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
