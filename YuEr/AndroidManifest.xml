@@ -24,10 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.own.yuer.MoreDateListActivity"
-            android:configChanges="keyboardHidden|navigation|orientation"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.own.yuer.ViewFlipperActivity"
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />

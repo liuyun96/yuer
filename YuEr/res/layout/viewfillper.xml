@@ -13,126 +13,147 @@
         android:outAnimation="@anim/push_left_out" >
     </ViewFlipper>
 
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:paddingBottom="10px"
+        android:paddingTop="10px"
+        android:stretchColumns="*" >
+
+        <TableRow android:layout_gravity="center" >
+
+            <ImageView
+                android:id="@id/index_btn_1"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_1" />
+
+            <ImageView
+                android:id="@id/index_btn_2"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_2" />
+
+            <ImageView
+                android:id="@id/index_btn_3"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_3" />
+
+            <ImageView
+                android:id="@id/index_btn_4"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_4" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/index_text"
+                android:text="备孕" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="孕期" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="分娩" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="月子" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@id/index_btn_5"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_5" />
+
+            <ImageView
+                android:id="@id/index_btn_6"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_6" />
+
+            <ImageView
+                android:id="@id/index_btn_7"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_7" />
+
+            <ImageView
+                android:id="@id/index_btn_8"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:onClick="clickBtn"
+                android:scaleType="fitCenter"
+                android:src="@drawable/index_btn_8" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                style="@style/index_text"
+                android:gravity="center"
+                android:text="新生儿" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="0~1岁" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="0~3岁" />
+
+            <TextView
+                style="@style/index_text"
+                android:text="三岁以上" />
+        </TableRow>
+    </TableLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingBottom="10px"
         android:paddingTop="10px" >
-
-        <ImageView
-            android:id="@id/index_btn_1"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_1" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_2"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_2" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_3"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_3" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_4"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_4" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="10px"
-        android:paddingTop="10px" >
-
-        <ImageView
-            android:id="@id/index_btn_5"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_5" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_6"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_6" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_7"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_7" />
-
-        <View
-            android:layout_width="0.33000004dip"
-            android:layout_height="41.19998dip" />
-
-        <ImageView
-            android:id="@id/index_btn_8"
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:onClick="clickbtn"
-            android:scaleType="fitCenter"
-            android:src="@drawable/index_btn_8" />
     </LinearLayout>
 
     <TextView
+        android:layout_width="200px"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         android:text="好文推荐"
-        android:paddingTop="10px"
-        android:paddingBottom="10px"
-        android:textSize="30px"
         android:textColor="@color/black"
         android:textDirection="ltr"
-        android:layout_width="200px" />
+        android:textSize="18dp" />
 
 </LinearLayout>

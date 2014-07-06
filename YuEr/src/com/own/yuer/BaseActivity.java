@@ -17,6 +17,8 @@ public class BaseActivity extends Activity {
 
 	protected void openActivity(Class<?> pClass, Bundle pBundle) {
 		Intent intent = new Intent(this, pClass);
+		// 设置activity切换无效果
+		intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 		if (pBundle != null) {
 			intent.putExtras(pBundle);
 		}
@@ -53,5 +55,12 @@ public class BaseActivity extends Activity {
 		default:
 			break;
 		}
+	}
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+		overridePendingTransition(0, 0);
 	}
 }

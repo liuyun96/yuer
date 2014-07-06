@@ -11,6 +11,11 @@ public class MyActivity extends BaseActivity {
 		setContentView(R.layout.my);
 	}
 
+	/*****
+	 * µã»÷ÐÐ
+	 * 
+	 * @param view
+	 */
 	public void clickRow(View view) {
 		switch (view.getId()) {
 		case R.id.my_fav:

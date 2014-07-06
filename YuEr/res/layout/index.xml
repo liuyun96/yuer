@@ -10,38 +10,31 @@
         android:layout_above="@id/toolbar"
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="好妈咪育儿"
-            android:textScaleX="1.5"
-            android:textSize="20dp" />
         <ListView
             android:id="@+id/lv"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-3.0dip"
-            android:layout_marginTop="-1.0dip"
+            android:layout_height="match_parent"
+            android:paddingLeft="3dp"
             android:background="#ffffffff" />
     </LinearLayout>
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@id/titlebar"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/head_bg"
-        android:gravity="center" >
-        <TextView
-            android:layout_width="match_parent"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="好妈咪育儿"
-            android:textScaleX="1.5"
-            android:textSize="20dp" />
-    </LinearLayout>
+            android:src="@drawable/head" />
+    </RelativeLayout>
+
     <include
         android:id="@id/toolbar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         layout="@layout/part_bar" />
+
 </RelativeLayout>

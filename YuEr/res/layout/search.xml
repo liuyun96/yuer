@@ -20,7 +20,7 @@
             android:layout_marginLeft="110px"
             android:hint="请输入关键字搜索"
             android:maxLines="1"
-            android:textColor="@color/title_e1" >
+            android:textColor="@color/gray" >
         </EditText>
 
         <TextView
