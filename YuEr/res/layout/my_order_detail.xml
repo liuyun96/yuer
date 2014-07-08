@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlebar"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/text_left"
+            android:text="订单信息" />
+
+        <View style="@style/line" />
+
+        <RelativeLayout
+            style="@style/RelativeLayout"
+            android:onClick="clickItem" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="商品名称:" />
+
+            <TextView
+                android:id="@+id/order_title"
+                style="@style/text_left"
+                android:paddingLeft="70dp"
+                android:text="爱婴。。。" />
+
+            <ImageView style="@style/my_arrow" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout style="@style/RelativeLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="购买数量" />
+
+            <TextView
+                android:id="@+id/order_num"
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="1" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout style="@style/RelativeLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="总价" />
+
+            <TextView
+                android:id="@+id/order_price"
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="$30.00" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout style="@style/RelativeLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="订单编号" />
+
+            <TextView
+                android:id="@+id/order_id"
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="1002233" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout style="@style/RelativeLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="订单时间" />
+
+            <TextView
+                android:id="@+id/order_date"
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="2014-06-19" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <ImageView
+            android:id="@+id/back_my"
+            style="@style/head_img"
+            android:onClick="backMy" />
+
+        <TextView
+            style="@style/head_text"
+            android:text="订单详情" />
+    </RelativeLayout>
+
+</RelativeLayout>

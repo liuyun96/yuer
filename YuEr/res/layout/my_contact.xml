@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background" >
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <ImageView
+            android:id="@+id/back_my"
+            style="@style/head_img"
+            android:onClick="backMy" />
+
+        <TextView
+            style="@style/head_text"
+            android:text="联系好妈咪" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlebar"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/text_left"
+            android:text="商务合作，商品购买，咨询，请联系【好妈咪】服务号：" />
+
+        <View style="@style/line" />
+
+        <RelativeLayout
+            style="@style/RelativeLayout"
+            android:onClick="clickItem" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="联系电话" />
+
+            <TextView
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="10011212212" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout
+            style="@style/RelativeLayout"
+            android:onClick="clickItem" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="微信号" />
+
+            <TextView
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="10011212212" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <RelativeLayout
+            style="@style/RelativeLayout"
+            android:onClick="clickItem" >
+
+            <TextView
+                style="@style/text_left"
+                android:layout_alignParentLeft="true"
+                android:text="QQ号" />
+
+            <TextView
+                style="@style/text_Right"
+                android:layout_alignParentRight="true"
+                android:text="10011212212" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

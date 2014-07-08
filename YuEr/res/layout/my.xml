@@ -4,6 +4,24 @@
     android:layout_height="fill_parent"
     android:background="#ffffffff" >
 
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <TextView
+            style="@style/head_text"
+            android:text="我的" />
+    </RelativeLayout>
+
+    <include
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/part_bar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,8 +46,8 @@
                 android:id="@+id/myname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="好妈咪001"
                 android:paddingRight="5dp"
+                android:text="好妈咪001"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
@@ -43,11 +61,21 @@
                         android:id="@+id/myname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="宝贝性别：女"
+                        android:text="宝贝性别："
                         android:textColor="@color/black"
                         android:textSize="13dp" />
 
-                    <Button android:text="修改" android:layout_height="35dp" />
+                    <TextView
+                        android:id="@+id/myname"
+                        style="@style/text_Right"
+                        android:paddingLeft="5dp"
+                        android:text="女"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <Button
+                        android:layout_height="35dp"
+                        android:text="修改" />
                 </TableRow>
 
                 <TableRow>
@@ -56,10 +84,14 @@
                         android:id="@+id/mydate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_span="2"
-                        android:text="宝贝生日：2012-06-01"
+                        android:text="宝贝生日："
                         android:textColor="@color/black"
                         android:textSize="13dp" />
+
+                    <TextView
+                        style="@style/text_left"
+                        android:layout_span="2"
+                        android:text="2012-06-01" />
                 </TableRow>
             </TableLayout>
         </LinearLayout>
@@ -92,7 +124,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_ping"
+            android:id="@+id/my_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -119,7 +151,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_send"
+            android:id="@+id/my_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -146,7 +178,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_thumd"
+            android:id="@+id/my_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -227,7 +259,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_tel"
+            android:id="@+id/my_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -250,7 +282,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_sug"
+            android:id="@+id/my_suggest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -296,7 +328,7 @@
             android:background="@color/line" />
 
         <RelativeLayout
-            android:id="@+id/my_wen"
+            android:id="@+id/my_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10px"
@@ -318,28 +350,5 @@
             android:layout_height="@dimen/single_pix"
             android:background="@color/line" />
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@id/titlebar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/head_bg"
-        android:gravity="center" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我  的"
-            android:textColor="@color/white"
-            android:textSize="30dp" />
-    </RelativeLayout>
-
-    <include
-        android:id="@id/toolbar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        layout="@layout/part_bar" />
 
 </RelativeLayout>

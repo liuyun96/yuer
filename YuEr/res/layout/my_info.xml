@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlebar"
+        android:orientation="vertical" >
+
+        <LinearLayout style="@style/LinearLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:text="宝贝昵称："
+                android:textSize="26sp" />
+
+            <EditText
+                android:id="@+id/baby_nick"
+                android:layout_width="150dp"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:text="宝贝生日："
+                android:textSize="26sp" />
+
+            <EditText
+                android:id="@+id/baby_birthday"
+                android:layout_width="150dp"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:text="宝贝性别："
+                android:textSize="26sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/LinearLayout" >
+
+            <TextView
+                style="@style/text_left"
+                android:text="更换头像："
+                android:textSize="26sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <ImageView
+            android:id="@+id/back_my"
+            style="@style/head_img"
+            android:onClick="backMy" />
+
+        <TextView
+            style="@style/head_text"
+            android:text="我的" />
+
+        <TextView
+            style="@style/head_text_right"
+            android:onClick="saveInfo"
+            android:text="保存" />
+    </RelativeLayout>
+
+</RelativeLayout>

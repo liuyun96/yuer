@@ -2,35 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white" >
+    android:background="@color/background" >
 
     <RelativeLayout
         android:id="@id/titlebar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        style="@style/RelativeLayout"
         android:background="@drawable/head_bg" >
 
-        <TextView
-            style="@style/head_text"
-            android:text="@string/index_head" />
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/back_my"
+            style="@style/head_img"
+            android:onClick="backMy" />
 
-    <include
-        android:id="@id/toolbar"
-        layout="@layout/menu_bar" />
+        <TextView
+            android:id="@+id/head_text"
+            style="@style/head_text"
+            android:text="我的评论" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/toolbar"
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
-
-        <ListView
-            android:id="@+id/lv"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="3dp" />
+        
     </LinearLayout>
 
 </RelativeLayout>

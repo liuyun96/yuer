@@ -1,14 +1,18 @@
 package com.own.yuer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 public class MyActivity extends BaseActivity {
 
+	private MyActivity myActivity;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.my);
+		myActivity = this;
 	}
 
 	/*****
@@ -17,13 +21,11 @@ public class MyActivity extends BaseActivity {
 	 * @param view
 	 */
 	public void clickRow(View view) {
-		switch (view.getId()) {
-		case R.id.my_fav:
-			setContentView(R.layout.my_article);
-			break;
-		default:
-			break;
-		}
+		Intent intent = new Intent(myActivity, MyChild.class);
+		Bundle bundle = new Bundle();
+		bundle.putInt("view_id", view.getId());
+		intent.putExtras(bundle);
+		startActivity(intent);
 	}
 
 	@Override

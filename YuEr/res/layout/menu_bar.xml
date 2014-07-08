@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:paddingTop="10px"
+        android:paddingBottom="10px"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@id/index_menu_1"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:scaleType="fitCenter"
+            android:onClick="clickMenu"
+            android:src="@drawable/index_menu_1" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_menu_2"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickMenu"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_menu_2" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_menu_3"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickMenu"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_menu_3" />
+
+        <View
+            android:layout_width="0.33000004dip"
+            android:layout_height="41.19998dip" />
+
+        <ImageView
+            android:id="@id/index_menu_4"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:onClick="clickMenu"
+            android:scaleType="fitCenter"
+            android:src="@drawable/index_menu_4" />
+        
+    </LinearLayout>
+
+</FrameLayout>

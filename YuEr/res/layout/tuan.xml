@@ -10,12 +10,12 @@
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
 
-        <TextView
+        <ListView
+            android:id="@+id/tuan_lv"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:text="热门搜索"
-            android:textColor="@color/red"
-            android:textSize="20px" />
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingLeft="3dp" />
     </LinearLayout>
 
     <RelativeLayout
