@@ -52,6 +52,10 @@
             android:name="com.own.yuer.MyChild"
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.own.yuer.ArticleListActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

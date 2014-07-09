@@ -31,11 +31,11 @@ public class BaseActivity extends Activity {
 	public void goHome(View view) {
 		switch (view.getId()) {
 		case R.id.tuan_back:
-			openActivity(IndexActivity.class);
 			break;
 		default:
 			break;
 		}
+		openActivity(IndexActivity.class);
 	}
 
 	public void clickMenu(View view) {

@@ -2,31 +2,22 @@ package com.own.yuer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
 
-import com.own.yuer.view.MyImageView;
-
-public class IndexActivity extends BaseActivity implements OnScrollListener {
+public class ArticleListActivity extends BaseActivity implements
+		OnScrollListener {
 
 	// ListView的Adapter
 	private SimpleAdapter mSimpleAdapter;
@@ -41,15 +32,11 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 	private int MaxDateNum;
 	// 最后可见条目的索引
 	private int lastVisibleIndex;
-	private int keyBackClickCount = 0;
-	private ViewFlipper flipper;
-	private Activity mActivity;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.index);
-		this.mActivity = this;
+		setContentView(R.layout.article_list);
 		initData();
 	}
 
@@ -68,7 +55,6 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 				new String[] { "img", "title", "readCount", "likeCount" },
 				new int[] { R.id.article_img, R.id.article_title,
 						R.id.article_readCount, R.id.article_likeCount });
-		initViewFilppper(lv);
 		// 加上底部View，注意要放在setAdapter方法前
 		lv.addFooterView(moreView);
 		lv.setAdapter(mSimpleAdapter);
@@ -125,36 +111,6 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 		super.onResume();
 	}
 
-	public void init() {
-
-	}
-
-	/**
-	 * 加载推荐位
-	 * 
-	 * @param lv
-	 */
-	private void initViewFilppper(ListView lv) {
-
-		LinearLayout listTop = (LinearLayout) LayoutInflater.from(mActivity)
-				.inflate(R.layout.viewfillper, null);
-		flipper = (ViewFlipper) listTop.findViewById(R.id.mflipper);
-		// flipper.setBackgroundColor(Color.RED);
-		Log.d("debug", flipper.getTop() + "");
-		if (flipper != null) {
-			flipper.setFlipInterval(3000);
-			flipper.startFlipping();
-		}
-		for (int i = 0; i < 3; i++) {
-			final MyImageView img = new MyImageView(mActivity);
-			img.setId(i);
-			img.setTitle("test" + i);
-			img.setImg(R.drawable.index_flip);
-			flipper.addView(img.getView());
-		}
-		lv.addHeaderView(listTop);
-	}
-
 	public void loadItem(View view) {
 		Intent localIntent = new Intent();
 		// /localIntent.setClass(this, ItemActivity.class);
@@ -199,43 +155,4 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 
 	}
 
-	public void clickBtn(View view) {
-		switch (view.getId()) {
-		case R.id.index_menu_1:
-			break;
-		case R.id.index_menu_2:
-			break;
-		case R.id.index_menu_3:
-			break;
-		case R.id.index_menu_4:
-			break;
-		default:
-			break;
-		}
-		openActivity(ArticleListActivity.class);
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			switch (keyBackClickCount++) {
-			case 0:
-				// showToast(this.getApplication().getApplicationContext(), "");
-				Toast.makeText(this, "再点一下退出", Toast.LENGTH_SHORT).show();
-				Timer timer = new Timer();
-				timer.schedule(new TimerTask() {
-					@Override
-					public void run() {
-						keyBackClickCount = 0;
-					}
-				}, 3000);
-				break;
-			case 1:
-				finish();
-			default:
-				break;
-			}
-		}
-		return true;
-	}
 }
