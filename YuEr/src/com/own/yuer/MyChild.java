@@ -63,7 +63,12 @@ public class MyChild extends BaseActivity {
 	 * @param view
 	 */
 	public void backMy(View view) {
-		openActivity(MyActivity.class);
-		defaultFinish();
+		this.finish();
+	}
+	
+	@Override
+	public void goHome(View view) {
+		// TODO Auto-generated method stub
+		this.finish();
 	}
 }

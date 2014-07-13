@@ -16,10 +16,6 @@
             android:text="@string/my" />
     </RelativeLayout>
 
-    <include
-        android:id="@+id/menu_bar"
-        layout="@layout/menu_bar" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

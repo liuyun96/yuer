@@ -39,6 +39,7 @@ public class BaseActivity extends Activity {
 	}
 
 	public void clickMenu(View view) {
+
 		switch (view.getId()) {
 		case R.id.index_menu_1:
 			openActivity(IndexActivity.class);

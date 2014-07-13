@@ -4,10 +4,32 @@
     android:layout_height="fill_parent"
     android:background="@color/white" >
 
-    <include
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        layout="@layout/search_head" />
+        android:layout_alignParentTop="true"
+        android:background="@drawable/search_head"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/back_search"
+            style="@style/head_img"
+            android:onClick="backSearch" />
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="105dp"
+            android:layout_weight="5"
+            android:background="@null"
+            android:hint="请输入关键字搜索"
+            android:maxLines="1"
+            android:textColor="@null" >
+        </EditText>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +37,6 @@
         android:layout_below="@id/titlebar"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
-        
     </LinearLayout>
 
 </RelativeLayout>

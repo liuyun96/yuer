@@ -4,6 +4,7 @@
     <item name="lv" type="id"></item>
     <item name="search_list" type="id"></item>
     <item name="titlebar" type="id">false</item>
+    <item name="head_bar" type="id">false</item>
     <item name="toolbar" type="id">false</item>
     <item name="index_menu_1" type="id">false</item>
     <item name="index_menu_2" type="id">false</item>

@@ -19,7 +19,7 @@ public class SplashActivity extends BaseActivity {
 	}
 
 	public void goHome() {
-		openActivity(IndexActivity.class);
+		openActivity(MainActivity.class);
 		defaultFinish();
 	}
 }

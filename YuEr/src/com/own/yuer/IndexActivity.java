@@ -20,7 +20,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -45,15 +47,20 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 	private ViewFlipper flipper;
 	private Activity mActivity;
 
+	RadioGroup radioGroup;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.index);
 		this.mActivity = this;
-		initData();
+		// initData();
 	}
 
 	public void initData() {
+		TextView headView = (TextView) findViewById(R.id.head_text);
+		headView.setText(R.string.app_name);
+		;
 		MaxDateNum = 22; // 设置最大数据条数
 		lv = (ListView) findViewById(R.id.lv);
 		// 实例化底部布局

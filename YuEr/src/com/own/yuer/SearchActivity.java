@@ -44,9 +44,10 @@ public class SearchActivity extends BaseActivity {
 	 * @param view
 	 */
 	public void clickSearch(View view) {
-		searchTextView = (TextView) findViewById(R.id.searchText);
+		TextView textView = (TextView) findViewById(R.id.searchText);
 		setContentView(R.layout.search_detail);
-		searchTextView.setText(searchTextView.getText());
+		searchTextView = (TextView) findViewById(R.id.searchText);
+		searchTextView.setText(textView.getText());
 		btn = (Button) findViewById(R.id.searchBtn);
 		// È·ÈÏ°´Å¥Òþ²Ø
 		btn.setVisibility(View.INVISIBLE);

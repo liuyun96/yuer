@@ -154,5 +154,11 @@ public class ArticleListActivity extends BaseActivity implements
 		}
 
 	}
+	
+	@Override
+	public void goHome(View view) {
+		// TODO Auto-generated method stub
+		this.finish();
+	}
 
 }
