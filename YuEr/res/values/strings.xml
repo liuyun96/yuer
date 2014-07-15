@@ -12,5 +12,8 @@
     <string name="my_order">我的订单</string>
     <string name="my_share">我的转发</string>
     <string name="my_comment">我的评论</string>
+    <string name="msg_login_error">信息错误</string>
+    <string name="network_not_connected">网络连接异常</string>
+    <string name="xml_parser_failed">解析XML失败</string>
 
 </resources>
