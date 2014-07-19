@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/head_bg" >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/back_my"
-            style="@style/head_img"
+            style="@style/head_left_btn"
             android:onClick="backMy" />
 
         <TextView
@@ -25,9 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/titlebar"
         android:orientation="vertical" >
-		
-        
-        
     </LinearLayout>
 
 </RelativeLayout>

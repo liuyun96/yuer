@@ -1,11 +1,14 @@
 package com.own.yuer.bean;
 
+
 public class Article {
 
+	private Integer id;
 	private String img;
 	private String title;
 	private Integer readCount;
 	private Integer likeCount;
+	private String updateTime;
 
 	public String getImg() {
 		return img;
@@ -38,5 +41,22 @@ public class Article {
 	public void setLikeCount(Integer likeCount) {
 		this.likeCount = likeCount;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
+	
 
 }

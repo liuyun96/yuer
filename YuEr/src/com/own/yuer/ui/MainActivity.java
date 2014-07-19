@@ -6,9 +6,14 @@ import java.util.TimerTask;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
@@ -24,17 +29,17 @@ import com.own.yuer.R;
 import com.own.yuer.common.UIHelper;
 import com.own.yuer.db.DBHelper;
 
-public class MainActivity extends FragmentActivity implements
-		OnCheckedChangeListener {
+public class MainActivity extends FragmentActivity{
 	private AppContext appContext;// 全局Context
 	RadioGroup radioGroup;
 	ImageView img;
 	TabHost tabHost;
 	int startLeft;
 	RelativeLayout bottom_layout;
-	private RadioButton[] mRadioButtons;
 	private MyFragmentTabManager tabManager;
 	private int keyBackClickCount = 0;
+
+	private String tag = "MainActivity";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,6 @@ public class MainActivity extends FragmentActivity implements
 		if (!appContext.isNetworkConnected())
 			UIHelper.ToastMessage(this, R.string.network_not_connected);
 		setupIntent();
-		initMainTabsBottomUI();
 
 	}
 
@@ -56,58 +60,35 @@ public class MainActivity extends FragmentActivity implements
 				android.R.id.tabcontent);
 
 		tabManager.addTab(
-				tabHost.newTabSpec("index").setIndicator("首页",
-						getResources().getDrawable(R.drawable.index_menu_1)),
+				createTabSpec("index", "首页", R.drawable.index_menu_1),
 				HomeFragment.class, null);
-
 		tabManager.addTab(
-				tabHost.newTabSpec("search").setIndicator("搜索",
-						getResources().getDrawable(R.drawable.index_menu_2)),
+				createTabSpec("search", "搜索", R.drawable.index_menu_2),
 				SearchFragment.class, null);
-
-		tabManager.addTab(
-				tabHost.newTabSpec("tuan").setIndicator("团购",
-						getResources().getDrawable(R.drawable.index_menu_3)),
+		tabManager.addTab(createTabSpec("tuan", "团购", R.drawable.index_menu_3),
 				TuanFragment.class, null);
-
-		tabManager.addTab(
-				tabHost.newTabSpec("my").setIndicator("我的",
-						getResources().getDrawable(R.drawable.index_menu_4)),
+		tabManager.addTab(createTabSpec("my", "我的", R.drawable.index_menu_4),
 				MyFragment.class, null);
+		
+	}
 
+	// 返回单个选项
+	private TabHost.TabSpec createTabSpec(String tabSpec, String text, int resid) {
+		TabHost.TabSpec index = tabHost.newTabSpec(tabSpec);
+		View view = LayoutInflater.from(this).inflate(R.layout.tabwidget, null,
+				false);
+		TextView tv_name = (TextView) view.findViewById(R.id.tab_text);
+		ImageView iv_icon = (ImageView) view.findViewById(R.id.tab_img);
+		tv_name.setText(text);
+		iv_icon.setBackgroundResource(resid);
+		index.setIndicator(view);
+		return index;
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
-	}
-
-	private void initMainTabsBottomUI() {
-		RadioGroup localRadioGroup = (RadioGroup) findViewById(R.id.radiogroup);
-		this.mRadioButtons = new RadioButton[4];
-		int i = 0;
-		while (i < 4) {
-			String str = "radio_button" + i;
-			this.mRadioButtons[i] = (RadioButton) localRadioGroup
-					.findViewWithTag(str);
-			this.mRadioButtons[i].setOnCheckedChangeListener(this);
-			i += 1;
-		}
-		mRadioButtons[0].setChecked(true);
-	}
-
-	@Override
-	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-		int location = -1;
-		for (int i = 0; i < mRadioButtons.length; i++) {
-			if (buttonView == mRadioButtons[i]) {
-				location = i;
-			} else {
-				mRadioButtons[i].setChecked(false);
-			}
-		}
-		tabHost.setCurrentTab(location);
 	}
 
 	/*****

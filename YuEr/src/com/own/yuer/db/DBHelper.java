@@ -11,10 +11,8 @@ import android.provider.BaseColumns;
 public class DBHelper extends SQLiteOpenHelper {
 
 	private static final String DB_NAME = "yuer";
-	private static final int DB_VERSION = 1;
-
+	private static final int DB_VERSION = 4;
 	private SQLiteDatabase db;
-
 	private static DBHelper mdbHelper;
 
 	/**
@@ -31,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	private DBHelper(Context context) {
+		// 创建数据库
 		super(context, DB_NAME, null, DB_VERSION);
 	}
 
@@ -40,12 +39,18 @@ public class DBHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 当数据库首次创建时执行该方法，一般将创建表等初始化操作放在该方法中执行. 重写onCreate方法，调用execSQL方法创建表
+	 * */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		this.db = db;
 		operateTable(db, "");
+		if (!checkisExistData("article"))
+			initData();
 	}
-
+	
+	// 当打开数据库时传入的版本号与当前的版本号不同时会调用该方法
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
@@ -56,10 +61,69 @@ public class DBHelper extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 
+	public void initData() {
+		for (int i = 0; i < 50; i++) {
+			ContentValues values = new ContentValues();
+			values.put(ArticleColumn.TITLE, "配合宝宝成长 需要  针对年龄段认知程度制定学习内容促进综合发展");
+			values.put(
+					ArticleColumn.IMG_URL,
+					"http://img1.bitautoimg.com/wapimg-66-44/bitauto/2014/07/19/bd6dab65-c23a-4004-8194-720993aaf143_630.jpg");
+			values.put(ArticleColumn.like_COUNT, 100);
+			values.put(ArticleColumn.READ_COUNT, 50);
+			values.put(ArticleColumn.UPDATE_TIME, "2014-07-19");
+			values.put(ArticleColumn._ID, i);
+			this.insert("article", values);
+		}
+	}
+
+	public boolean checkisExistData(String tableName) {
+		Cursor cursor = this.rawQuery(" select count(*) from  " + tableName,
+				null);
+		cursor.moveToFirst();
+		if (cursor.getLong(0) != 0) {
+			return true;
+		}
+		cursor.close();
+		return false;
+	}
+
+	// 查询记录的总数
+	public long getCount(String tableName) {
+		if (db == null)
+			db = getWritableDatabase();
+		String sql = "select count(*) from " + tableName;
+		Cursor c = db.rawQuery(sql, null);
+		c.moveToFirst();
+		long length = c.getLong(0);
+		c.close();
+		return length;
+	}
+
+	/**
+	 * 拿到所有的记录条数
+	 * 
+	 * @param firstResult
+	 *            从第几条数据开始查询。
+	 * @param maxResult
+	 *            每页显示多少条记录。
+	 * @return 当前页的记录
+	 */
+	public Cursor getAllItems(String tableName, int firstResult, int maxResult) {
+		if (db == null) {
+			db = getWritableDatabase();
+		}
+		String sql = "select * from " + tableName + " limit ?,?";
+		Cursor mCursor = db.rawQuery(
+				sql,
+				new String[] { String.valueOf(firstResult),
+						String.valueOf(maxResult) });
+		return mCursor;
+	}
+
+
 	public void operateTable(SQLiteDatabase db, String actionString) {
 		Class<DatabaseColumn>[] columnsClasses = DatabaseColumn.getSubClasses();
 		DatabaseColumn columns = null;
-
 		for (int i = 0; i < columnsClasses.length; i++) {
 			try {
 				columns = columnsClasses[i].newInstance();
@@ -138,5 +202,5 @@ public class DBHelper extends SQLiteOpenHelper {
 			db = null;
 		}
 	}
-	
+
 }

@@ -8,13 +8,6 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
 
-    <!-- 访问网络的权限 -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name="com.own.yuer.AppContext"
         android:allowBackup="true"
@@ -78,6 +71,16 @@
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />
     </application>
+
+    <!-- 访问网络的权限 -->
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 屏幕保持唤醒 不锁屏 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- 单元测试用的 -->
     <instrumentation

@@ -12,17 +12,9 @@ public abstract class DatabaseColumn implements BaseColumns {
 	 */
 	public static final String AUTHORITY = "com.own.yuer.provider";
 	/**
-	 * The database's name
+	 * 字段类对应的路径
 	 */
-	public static final String DATABASE_NAME = "yuer.db";
-	/**
-	 * The version of current database
-	 */
-	public static final int DATABASE_VERSION = 1;
-	/**
-	 * Classes's name extends from this class.
-	 */
-	public static final String[] SUBCLASSES = new String[] { "com.own.yuer.db.NewsColumn" };
+	public static final String[] SUBCLASSES = new String[] { "com.own.yuer.db.ArticleColumn" };
 
 	public String getTableCreateor() {
 		return getTableCreator(getTableName(), getTableMap());

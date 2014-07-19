@@ -27,6 +27,8 @@ import com.own.yuer.api.ApiClient;
 import com.own.yuer.bean.NewsList;
 import com.own.yuer.common.StringUtils;
 import com.own.yuer.common.UIHelper;
+import com.own.yuer.db.DBHelper;
+
 /**
  * 全局应用程序类：用于保存和调用全局应用配置及访问网络数据
  * 
@@ -59,6 +61,14 @@ public class AppContext extends Application {
 		// 注册App异常崩溃处理器
 		Thread.setDefaultUncaughtExceptionHandler(AppException
 				.getAppExceptionHandler());
+		initData();
+	}
+
+	/**
+	 * 初始化数据库
+	 */
+	public void initData() {
+		DBHelper.getInstance(getApplicationContext());
 	}
 
 	/**
@@ -500,7 +510,7 @@ public class AppContext extends Application {
 	 * 获取新闻数据列表
 	 * 
 	 * @return
-	 * @throws AppException 
+	 * @throws AppException
 	 */
 	public NewsList getNewsList() throws AppException {
 		NewsList list = null;

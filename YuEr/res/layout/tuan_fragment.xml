@@ -24,15 +24,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/head_bg" >
 
-        <ImageView
+        <ImageButton
             android:id="@id/tuan_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:onClick="goHome"
-            android:src="@drawable/back" />
+            style="@style/head_left_btn"
+            android:onClick="goHome" />
 
         <TextView
             android:layout_width="wrap_content"

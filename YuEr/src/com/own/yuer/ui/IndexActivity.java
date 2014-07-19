@@ -144,7 +144,7 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 	 */
 	private void initViewFilppper(ListView lv) {
 
-		LinearLayout listTop = (LinearLayout) LayoutInflater.from(mActivity)
+		/*LinearLayout listTop = (LinearLayout) LayoutInflater.from(mActivity)
 				.inflate(R.layout.viewfillper, null);
 		flipper = (ViewFlipper) listTop.findViewById(R.id.mflipper);
 		// flipper.setBackgroundColor(Color.RED);
@@ -160,7 +160,7 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 			img.setImg(R.drawable.index_flip);
 			flipper.addView(img.getView());
 		}
-		lv.addHeaderView(listTop);
+		lv.addHeaderView(listTop);*/
 	}
 
 	public void loadItem(View view) {

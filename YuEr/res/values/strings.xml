@@ -6,6 +6,12 @@
     <string name="login_label_2">宝宝生日:</string>
     <string name="login_label_3">宝宝性别:</string>
     <string name="article_head">孕前检查</string>
+    
+    <string name="index_menu_1">首页</string>
+    <string name="index_menu_2">搜索</string>
+    <string name="index_menu_3">团购</string>
+    <string name="index_menu_4">我的</string>
+    
     <string name="my">我的</string>
     <string name="my_fav">我的收藏</string>
     <string name="my_like">我的点赞</string>

@@ -6,13 +6,11 @@ import java.util.HashMap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
@@ -20,7 +18,6 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.own.yuer.R;
-import com.own.yuer.view.MyImageView;
 
 public class TuanFragment extends ListFragment {
 
@@ -62,7 +59,6 @@ public class TuanFragment extends ListFragment {
 				new int[] { R.id.article_img, R.id.article_title,
 						R.id.article_readCount, R.id.article_likeCount });
 		// 加上底部View，注意要放在setAdapter方法前
-		initViewFilppper(lv);
 		lv.addFooterView(moreView);
 		lv.setAdapter(mSimpleAdapter);
 		// 绑定监听器
@@ -114,30 +110,5 @@ public class TuanFragment extends ListFragment {
 
 	}
 
-	/**
-	 * 加载推荐位
-	 * 
-	 * @param lv
-	 */
-	private void initViewFilppper(ListView lv) {
-
-		LinearLayout listTop = (LinearLayout) LayoutInflater
-				.from(getActivity()).inflate(R.layout.viewfillper, null);
-		flipper = (ViewFlipper) listTop.findViewById(R.id.mflipper);
-		// flipper.setBackgroundColor(Color.RED);
-		Log.d("debug", flipper.getTop() + "");
-		if (flipper != null) {
-			flipper.setFlipInterval(3000);
-			flipper.startFlipping();
-		}
-		for (int i = 0; i < 3; i++) {
-			final MyImageView img = new MyImageView(getActivity());
-			img.setId(i);
-			img.setTitle("test" + i);
-			img.setImg(R.drawable.index_flip);
-			flipper.addView(img.getView());
-		}
-		lv.addHeaderView(listTop);
-	}
 
 }
