@@ -61,7 +61,6 @@ public class IndexActivity extends BaseActivity implements OnScrollListener {
 	public void initData() {
 		TextView headView = (TextView) findViewById(R.id.head_text);
 		headView.setText(R.string.app_name);
-		;
 		MaxDateNum = 22; // 设置最大数据条数
 		lv = (ListView) findViewById(R.id.lv);
 		// 实例化底部布局

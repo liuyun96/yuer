@@ -70,6 +70,10 @@
             android:name="com.own.yuer.ui.SearchDetailActivity"
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.own.yuer.ui.ArticleActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:screenOrientation="portrait" />
     </application>
 
     <!-- 访问网络的权限 -->

@@ -59,8 +59,8 @@ public class AppContext extends Application {
 	public void onCreate() {
 		super.onCreate();
 		// ◊¢≤·App“Ï≥£±¿¿£¥¶¿Ì∆˜
-		Thread.setDefaultUncaughtExceptionHandler(AppException
-				.getAppExceptionHandler());
+	/*	Thread.setDefaultUncaughtExceptionHandler(AppException
+				.getAppExceptionHandler());*/
 		initData();
 	}
 

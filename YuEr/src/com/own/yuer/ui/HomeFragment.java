@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -116,15 +119,12 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 			int visibleItemCount, int totalItemCount) {
 		// 计算最后可见条目的索引
 		lastVisibleIndex = firstVisibleItem + visibleItemCount - 2;
-		Log.e(tag, "lastVisibleIndex" + lastVisibleIndex);
 		// 所有的条目已经和最大条数相等，则移除底部的View
 	}
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 		// 滑到底部后自动加载，判断listview已经停止滚动并且最后可视的条目等于adapter的条目
-		Log.e(tag, "lastVisibleIndex" + lastVisibleIndex + "listViewAdapter"
-				+ listViewAdapter.getCount());
 		if (scrollState == OnScrollListener.SCROLL_STATE_IDLE
 				&& lastVisibleIndex == listViewAdapter.getCount()) {
 			initData();
@@ -155,6 +155,8 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
 		Log.i(tag, "article_id" + id);
+		Intent intent = new Intent(getActivity(), ArticleActivity.class);
+		startActivity(intent);
 	}
 
 	/**
