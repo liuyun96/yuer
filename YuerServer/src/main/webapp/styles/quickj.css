@@ -1,0 +1,127 @@
+html, body {
+	font: normal 12px 宋体,tahoma, arial, verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	overflow: hidden;
+	height: 100%;
+}
+#app-header {
+    background: url("images/hd-bg.gif") repeat-x scroll 0 50% #1E4176;
+    border: 0 none;
+    padding-left: 3px;
+	height:42;
+}
+
+#app-title {
+    color: #eee;
+    font: 28px 宋体,tahoma,arial,sans-serif;
+	font-weight:bold;
+    padding: 4px 0 8px 4px;
+}
+#app-help {
+    color: #eee;
+    font: 12px 宋体,tahoma,arial,sans-serif;
+    padding-right:4px;
+	padding-top:2px;
+	float:right;
+}
+#app-help a{
+	text-decoration:none;
+	color:#eee;
+}
+#load-ing{
+	position:absolute;
+	right:5px;
+	top:16px;
+	background:rgb(221, 68, 119) url(images/wait.gif) no-repeat 4px 2px ;
+	z-index: 200001;
+    height:20px;
+	line-height:20px;
+	font-size:12px;
+	padding-left:25px;
+	display:none;
+	white-space:nowrap;
+	color:#FFF; 
+}
+.ext-el-mask {
+    background:#dadadb;
+}
+
+.x-tree {
+    background:#fff !important;
+}
+.x-border-layout-ct {
+    background:transparent;
+}
+body.x-border-layout-ct {
+    background:#c3d5ed url(images/bg.gif) repeat-x left top !important;
+}
+.x-layout-split {
+    background-color:transparent !important;
+}
+
+.x-tree-node div.menus-node{
+    background:#eee  repeat-x;
+    margin-top:1px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ccc;
+    padding-top:2px;
+    padding-bottom:1px;
+}
+
+.menus-node  .x-tree-node-icon {
+    display:none;
+}
+
+.menu {
+    padding:3px 0 3px 0;
+}
+.menu .x-tree-ec-icon {
+    display:none;
+}
+.menu-icon {
+    background-image:url(images/menu.gif) !important;
+}
+.add-icon{
+    background-image:url(images/add.png) !important;
+}
+.delete-icon{
+    background-image:url(images/delete.png) !important;
+}
+.basket-icon{
+    background-image:url(images/basket.png) !important;
+}
+.edit-icon{
+    background-image:url(images/edit.png) !important;
+}
+.refresh-icon{
+    background-image:url(images/refresh.gif) !important;
+}
+.save-icon{
+    background-image:url(images/save.png) !important;
+}
+.find-icon{
+    background-image:url(images/find.png) !important;
+}
+.x-tree-selected {
+    border-top:1px solid #a3bae9;
+    border-bottom:1px solid #a3bae9;
+    background:#DFE8F6;
+}
+.x-tree-node .x-tree-selected a span{
+	background:transparent;
+	color:#15428b;
+    font-weight:bold;
+}
+
+#main-tabs .x-tab-panel-body {
+    background:transparent;
+    border:0 none;
+}
+
+
+.x-tab-panel-header {
+    border-bottom-width:0 !important;
+}
+

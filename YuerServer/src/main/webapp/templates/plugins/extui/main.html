@@ -1,0 +1,120 @@
+﻿﻿﻿﻿<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>ITV WAP管理平台</title>
+
+		<link rel="stylesheet" type="text/css"
+			href="${ctx}/styles/ext/ext-all.css" />
+		<link rel="stylesheet" type="text/css" href="${ctx}/styles/quickj.css" />
+		<link rel="stylesheet" type="text/css"
+			href="${ctx}/styles/ext/ext-patch.css" />
+		
+		<!-- 插件 -->
+		<script type="text/javascript"
+			src="${ctx}/scripts/ext/adapter/ext/ext-base.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/ext/ext-all.js?version=20140505"></script>
+		<script type="text/javascript"
+			src="${ctx}/scripts/ext/ext-lang-zh_CN.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/ext/ext-basex.js?version=20140505"></script>
+		
+		<script type="text/javascript" src="${ctx}/scripts/ext/DateTimeField/Spinner.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/ext/DateTimeField/SpinnerField.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/ext/DateTimeField/DateTimeField.js?version=20140505"></script>
+		
+		<script type="text/javascript" src="${ctx}/scripts/jquery-1.4.2.min.js?version=20140505"></script>
+		
+		<script type="text/javascript" src="${ctx}/scripts/fusionchart/FusionCharts.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/fusionchart/FusionChartsExportComponent.js?version=20140505"></script>
+			
+		<!-- 基础js -->
+		<script type="text/javascript"
+			src="${ctx}/scripts/ext/ux/TabCloseMenu.js?version=20140505"></script>
+		<script type="text/javascript"
+			src="${ctx}/scripts/framework/QuickApplication.js?version=20140505"></script>
+		<script type="text/javascript"
+			src="${ctx}/scripts/framework/MainPanel.js?version=20140505"></script>
+		<script type="text/javascript"
+			src="${ctx}/scripts/framework/MenuPanel.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/extui/main/menus"></script>
+		
+		<script type="text/javascript" src="${ctx}/scripts/app/base/users.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/roles.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/groups.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/dictType.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/dictionary.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/resource.js?version=20140505"></script>
+		<script type="text/javascript" src="${ctx}/scripts/app/base/simpleMenus.js?version=20140505"></script>
+		
+		
+		<!-- cms后台新增js -->
+
+		
+		<style>
+		.provinces{
+			width:100%;height:200px;overflow-y:auto;border:1px solid #F0F0F0;background:#FFFFFF;
+		}
+		.provinces input{
+			margin:6px 0px 0px 6px;
+		}
+		.provinces label{
+			cursor:pointer;
+		}
+		.provinces span.name{
+			padding:-2px 0px 0px 10px;
+		}
+		</style>
+		
+
+		<script>
+	var webRootCms='${ctx}/cms';
+	var webRoot='${ctx}';
+	
+	var bWidth = Ext.getBody().getWidth();
+	var bHeight = Ext.getBody().getHeight(); // 768 42
+	
+	var userName='${session.USER_IN_SESSION_KEY.userName}';
+	var itvIp = '${session.itvIp!'http://61.160.131.58:84'}';
+	
+	var del_bl = false;
+	var add_bl = false;
+	var edit_bl = false;
+	var is_dx = false; // 页面跟页面组件管理的编辑按钮控制
+
+<#if userInfo??>
+	<#list userInfo.roles as role>
+		<#list role.resources as res>
+			<#if res.name == "新增">
+			add_bl = true;
+			<#elseif res.name == "编辑">
+			edit_bl = true;
+			<#elseif res.name == "删除">
+			del_bl = true;
+			</#if>
+		</#list>
+	</#list>
+</#if>
+
+var userName = '${session.USER_IN_SESSION_KEY.userName}';
+if(userName.indexOf('dx')!=-1){
+	is_dx = true;
+}
+</script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="x-small-editor" id="app-header">
+				<div id="app-help">
+					${session.USER_IN_SESSION_KEY.name},你好|
+					<a href='${ctx}/cms/index/logout'>退出</a>|
+					<a href=''>帮助</a>
+				</div>
+				<div id="load-ing"></div>
+				<div id="app-title">
+					数字营销管理平台
+				</div>
+			</div>
+		</div>
+		<div id="tree"></div>
+	</body>
+	﻿
+<html>

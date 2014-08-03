@@ -1,0 +1,16 @@
+{
+	success:true,
+	<#if message??>
+		message:'${message}',
+	<#else>
+		message:'${errorMessage}',
+	</#if>
+	data:{
+		total:${total},
+		users:[
+		<#list users as user>
+		{'id':${user.id},'email':'${user.email}','name':'${user.name}','lastLogin':'${user.lastLogin}','userName':'${user.userName}'}<#if user_has_next>,</#if>
+		</#list>
+		]
+	}	
+}

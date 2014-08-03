@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ITV管理平台</title>
+
+<!-- 引入ExtJS所需文件-->
+<link rel="stylesheet" type="text/css" href="${ctx}/styles/ext/ext-all.css" />
+<script type="text/javascript" src="${ctx}/scripts/ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="${ctx}/scripts/ext/ext-all.js"></script>
+<script type="text/javascript"
+	src="${ctx}/scripts/ext/ux/statusbar/StatusBar.js"></script>
+<script type="text/javascript" src="${ctx}/scripts/ext/ux/statusbar/ValidationStatus.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx}/styles/ext/ext-patch.css" />
+
+<script>
+//开始
+Ext.onReady(function fn(){
+  Ext.QuickTips.init();
+  var webRoot = '${ctx}';
+  var uStore = new Ext.data.JsonStore({
+	  fields:[
+				{name:'id',type:'int'},
+				{name:'userName'}
+			],
+		    url: webRoot+'/extui/user/listAll/login',
+		    root:'data.users'
+  });
+	
+  var loginFormPanel = new Ext.FormPanel({  
+      id: 'login-form',  
+      labelWidth: 55,  
+      frame: false,  
+      width:330,
+      bodyStyle:'background-color: #DFE8F6; padding-top: 10px;padding-bottom:20px; padding-left: 20px; border: 0px solid;',  
+      defaults: {  
+          width: 300,  
+          anchor: '100%',  
+          selectOnFocus: true
+      },  
+      defaultType: 'textfield',  
+      method: 'POST',  
+      bodyBorder: false,  
+      border: false,  
+      items: [{ 
+              id: 'username',  
+              name: 'user.username',  
+              fieldLabel: '用户名',  
+              allowBlank: false,
+              width: 200,  
+              value:'',
+              blankText: '请输入用户名'  
+          },{  
+              id: 'password',  
+              name: 'user.password',  
+              fieldLabel: '密&nbsp;&nbsp;&nbsp;码',  
+              inputType: 'password',  
+			  allowBlank:false,
+			  value:'',
+              blankText: '请输入密码'  
+          },{  
+			  xtype:'compositefield',
+              fieldLabel: '验证码',  
+			  id:'verifycode',
+			  items: [
+			  {
+				name:'verifycode',
+				id:'verify_code',
+				width:50,
+				xtype:'textfield',
+				allowBlank:false,
+				enableKeyEvents : true,
+				listeners : {
+					"keyup" : function() {
+						var key = Ext.EventObject.getKey();
+						var verifycode = Ext.getCmp("verify_code").getRawValue()
+								.trim();
+						if (verifycode != "") {
+							if (key == 13) {
+								if(loginFormPanel.getForm().isValid()){  
+                          Ext.Ajax.request({
+                                 url:webRoot + '/extui/main/checkVerifyCode',
+                                 success: function(resp, opts){
+                                       var res = Ext.util.JSON.decode(resp.responseText);
+                                       if(res.data.check == 'success'){
+                                    	   var sb = Ext.getCmp('form-statusbar');  
+                                           sb.showBusy('登录中...');  
+                                           Ext.Ajax.request({  
+                                              url: webRoot + '/cms/index/login',  
+                                              success: function(response,opts) {  
+                                                   var messager = Ext.util.JSON.decode(response.responseText);
+                                                   if(messager.success && messager.data.msgs == 'true') {  
+                                                       sb.setStatus({  
+                                                           text: '登录成功!',   
+                                                           iconCls: '',  
+                                                           clear: true  
+                                                       });  
+                                                       var url = messager.data.targetUrl; 
+                                                       var model = messager.data.model;
+                                                       if(model=='nomal'){
+                                                    	 //屏蔽84端口后台
+                                                      	 location.href = 'http://jshwd.com:8084/' +url;  
+                                                       }else{
+                                                    	 location.href =  webRoot + '/' +url;
+                                                       }
+                                                   } else {
+                                                       Ext.Msg.alert('提示',messager.data.msgs);  
+                                                       sb.setStatus({  
+                                                           text: '登录失败! 原因:'+ messager.data.msgs,   
+                                                           iconCls: '',  
+                                                           clear: true  
+                                                       });  
+                                                   }  
+                                              },  
+                                              params: {username: Ext.getCmp('username').getValue(), password: Ext.getCmp('password').getValue()}  
+                                           });  
+                                       }else{
+                                           Ext.Msg.alert("提示","验证码错误！");
+                                           Ext.getCmp("verify_code").setValue("");
+                                           return;
+                                       }
+                               },
+                               params: {code: Ext.getCmp('verify_code').getValue()}
+                          });
+                         
+                      }  
+							}
+						}
+					}
+				}
+				},{
+				xtype:'panel',
+				html:'<img src="${ctx}/extui/verifycode" title="看不清楚验证码，请点击图片" style="cursor:pointer;" id="verifycode_img" onclick="this.src=\'${ctx}/extui/verifycode?v=\'+Math.random()"/>'
+				}
+			  ]
+
+          }
+      ],  
+      buttons: [{  
+                  text:'登录',  
+                  handler: function(){  
+                      if(loginFormPanel.getForm().isValid()){  
+                          Ext.Ajax.request({
+                                 url:webRoot + '/extui/main/checkVerifyCode',
+                                 success: function(resp, opts){
+                                       var res = Ext.util.JSON.decode(resp.responseText);
+                                       if(res.data.check == 'success'){
+                                    	   var sb = Ext.getCmp('form-statusbar');  
+                                           sb.showBusy('登录中...');  
+                                           Ext.Ajax.request({  
+                                              url: webRoot + '/cms/index/login',  
+                                              success: function(response,opts) {  
+                                                   var messager = Ext.util.JSON.decode(response.responseText);
+                                                   if(messager.success && messager.data.msgs == 'true') {  
+                                                       sb.setStatus({  
+                                                           text: '登录成功!',   
+                                                           iconCls: '',  
+                                                           clear: true  
+                                                       });  
+                                                       var url = messager.data.targetUrl; 
+                                                       location.href =  webRoot + '/' +url;  
+                                                   } else {
+                                                       Ext.Msg.alert('提示',messager.data.msgs);  
+                                                       sb.setStatus({  
+                                                           text: '登录失败! 原因:'+ messager.data.msgs,   
+                                                           iconCls: '',  
+                                                           clear: true  
+                                                       });  
+                                                   }  
+                                              },  
+                                              params: {username: Ext.getCmp('username').getValue(), password: Ext.getCmp('password').getValue()}  
+                                           });  
+                                       }else{
+                                           Ext.Msg.alert("提示","验证码错误！");
+                                           return;
+                                       }
+                               },
+                               params: {code: Ext.getCmp('verify_code').getValue()}
+                          });
+                         
+                      }  
+                  }  
+              },{  
+                  text: '重置',  
+                  handler: function(){  
+                      loginFormPanel.form.reset();  
+                  }  
+              }]  
+  });  
+  
+  loginPanel = new Ext.Window({  
+      applyTo:'login-win',	  
+      layout:'vbox',  
+      title: '登录',  
+      width: 350,  
+      height: 280,  
+      closable:false,
+      draggable:false,
+      model:true,
+      resizable : false,  
+      closeAction: 'hide',  
+      items: [new Ext.Panel({id:'logo-panel',height:62,width:338,html:'<img src="${ctx}/images/logo.gif" alt="logo" />'}),loginFormPanel],
+      bbar: new Ext.ux.StatusBar({  
+          id: 'form-statusbar',  
+          defaultText: '待登录'
+      })  
+  });  
+  loginPanel.show(this);  
+});
+</script>
+
+</head>
+
+<body style="background-color: #eee">
+<div id="aa"></div>
+<div id="login-win" class="x-hidden"></div>
+</body>
+</html>

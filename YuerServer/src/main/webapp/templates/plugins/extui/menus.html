@@ -1,0 +1,16 @@
+<#macro menu_out menus>
+	<#list menus as menu>
+	{
+		<#if menu.children?size == 0>
+			"text":"${menu.title}","iconCls": "menu-icon","leaf":true,"cls":'menu',"id":"${menu.id}","url":"${menu.url!''}"
+		<#else>
+			"text":"${menu.title}","cls":"menus-node","expanded":true,"children":[<@menu_out menu.children/>]
+		</#if>
+	}
+		<#if menu_has_next>,</#if>
+	</#list>
+	<#return>
+</#macro>
+MenuPanel.menuData=[
+	<@menu_out rootMenus/>
+];
