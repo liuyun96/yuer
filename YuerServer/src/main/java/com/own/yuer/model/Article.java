@@ -12,12 +12,20 @@ import java.util.*;
 @Entity
 @Table(name="ARTICLE")
 public class Article implements Serializable {
-	private static final long serialVersionUID = 15099865493L;
+	private static final long serialVersionUID = 14009060472L;
 
 	/**
 	*文章编号
 	*/
 	private Integer id;
+	/**
+	*栏目名称
+	*/
+	private Columns columns;
+	/**
+	*专题编号
+	*/
+	private Subjects subjects;
 	/**
 	*文章标题
 	*/
@@ -59,14 +67,6 @@ public class Article implements Serializable {
 	*/
 	private Integer favTimes;
 	/**
-	*大栏目
-	*/
-	private String bigColumn;
-	/**
-	*小栏目
-	*/
-	private String smallColumn;
-	/**
 	*关键字
 	*/
 	private String keyword;
@@ -92,6 +92,34 @@ public class Article implements Serializable {
 	*/	
 	public void setId(Integer id){
 		this.id = id;
+	} 
+	/**
+	* 获取栏目名称
+	*/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "COLUMN_NAME")
+	public Columns getColumns(){
+		return columns;
+	}
+	/**
+	* 设置栏目名称
+	*/	
+	public void setColumns(Columns columns){
+		this.columns = columns;
+	} 
+	/**
+	* 获取专题编号
+	*/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "SUBJECT_ID")
+	public Subjects getSubjects(){
+		return subjects;
+	}
+	/**
+	* 设置专题编号
+	*/	
+	public void setSubjects(Subjects subjects){
+		this.subjects = subjects;
 	} 
 	/**
 	* 获取文章标题
@@ -232,34 +260,6 @@ public class Article implements Serializable {
 	*/	
 	public void setFavTimes(Integer favTimes){
 		this.favTimes = favTimes;
-	} 
-	/**
-	* 获取大栏目
-	*/
-	
-	@Column(name="BIG_COLUMN",length=15)
-	public String getBigColumn(){
-		return bigColumn;
-	}
-	/**
-	* 设置大栏目
-	*/	
-	public void setBigColumn(String bigColumn){
-		this.bigColumn = bigColumn;
-	} 
-	/**
-	* 获取小栏目
-	*/
-	
-	@Column(name="SMALL_COLUMN",length=20)
-	public String getSmallColumn(){
-		return smallColumn;
-	}
-	/**
-	* 设置小栏目
-	*/	
-	public void setSmallColumn(String smallColumn){
-		this.smallColumn = smallColumn;
 	} 
 	/**
 	* 获取关键字

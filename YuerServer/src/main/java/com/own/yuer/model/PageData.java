@@ -12,7 +12,7 @@ import java.util.*;
 @Entity
 @Table(name="PAGE_DATA")
 public class PageData implements Serializable {
-	private static final long serialVersionUID = 18213514617L;
+	private static final long serialVersionUID = 15903103675L;
 
 	/**
 	*编号
@@ -42,14 +42,6 @@ public class PageData implements Serializable {
 	*状态
 	*/
 	private Boolean status;
-	/**
-	*区域
-	*/
-	private String area;
-	/**
-	*详情
-	*/
-	private String detail;
 		
 	public PageData(){
 	}
@@ -152,34 +144,6 @@ public class PageData implements Serializable {
 	*/	
 	public void setStatus(Boolean status){
 		this.status = status;
-	} 
-	/**
-	* 获取区域
-	*/
-	
-	@Column(name="AREA",length=20)
-	public String getArea(){
-		return area;
-	}
-	/**
-	* 设置区域
-	*/	
-	public void setArea(String area){
-		this.area = area;
-	} 
-	/**
-	* 获取详情
-	*/
-	
-	@Column(name="DETAIL",length=500)
-	public String getDetail(){
-		return detail;
-	}
-	/**
-	* 设置详情
-	*/	
-	public void setDetail(String detail){
-		this.detail = detail;
 	} 
 	
 }
