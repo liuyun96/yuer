@@ -20,7 +20,7 @@ public class CmsPlugin extends AbstractPlugin {
 
 	@Override
 	public String getName() {
-		return "itvcms管理平台";
+		return "育儿管理平台";
 	}
 
 	@Override

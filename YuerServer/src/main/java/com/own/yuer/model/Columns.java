@@ -3,16 +3,12 @@
 // Generated from PowerDesigner file ,Written by lbj.
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,14 +28,10 @@ public class Columns implements Serializable {
 	 * 状态
 	 */
 	private Boolean status;
-	/**
-	 * 关联的文章表集合
-	 */
-	private Set<Article> articles;
-	/**
-	 * 关联的专题表集合
-	 */
-	private Set<Subjects> subjectss;
+
+	private String columnName;
+
+	private Integer position;
 
 	public Columns() {
 	}
@@ -77,21 +69,22 @@ public class Columns implements Serializable {
 		this.status = status;
 	}
 
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, targetEntity = Article.class, mappedBy = "columns")
-	public Set<Article> getArticles() {
-		return this.articles;
+	@Column(name = "column_name")
+	public String getColumnName() {
+		return columnName;
 	}
 
-	public void setArticles(Set<Article> articles) {
-		this.articles = articles;
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
 	}
 
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, targetEntity = Subjects.class, mappedBy = "columns")
-	public Set<Subjects> getSubjectss() {
-		return this.subjectss;
+	@Column(name = "position")
+	public Integer getPosition() {
+		return position;
 	}
 
-	public void setSubjectss(Set<Subjects> subjectss) {
-		this.subjectss = subjectss;
+	public void setPosition(Integer position) {
+		this.position = position;
 	}
+
 }

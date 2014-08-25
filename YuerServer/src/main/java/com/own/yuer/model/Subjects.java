@@ -2,8 +2,17 @@
 // Generated from PowerDesigner file ,Written by lbj.
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
 * 专题表 
@@ -30,10 +39,8 @@ public class Subjects implements Serializable {
 	*状态
 	*/
 	private Boolean status;
-	/**
-	* 关联的文章表集合
-	*/
-	private Set<Article> articles;
+	
+	private Integer position;
 		
 	public Subjects(){
 	}
@@ -96,11 +103,12 @@ public class Subjects implements Serializable {
 		this.status = status;
 	} 
 	
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, targetEntity = Article.class, mappedBy = "subjects")
-	public Set<Article> getArticles(){
-		return this.articles;
+	@Column(name = "position")
+	public Integer getPosition() {
+		return position;
 	}
-	public void setArticles(Set<Article> articles){
-		this.articles = articles;
+
+	public void setPosition(Integer position) {
+		this.position = position;
 	}
 }

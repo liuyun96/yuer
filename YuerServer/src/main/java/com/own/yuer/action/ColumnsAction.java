@@ -3,23 +3,24 @@
 import java.util.Collection;
 import java.util.HashMap;
 
-import com.own.yuer.model.Columns;
-import com.own.yuer.service.ColumnsService;
 import cn.quickj.extui.action.ExtBaseAction;
 import cn.quickj.hibernate.Paginate;
 
 import com.google.inject.Inject;
+import com.own.yuer.model.Columns;
+import com.own.yuer.service.ColumnsService;
 
 public class ColumnsAction extends ExtBaseAction {
 	@Inject
 	private ColumnsService columnsService;
-	@Inject 
+	@Inject
 	private Columns columns;
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public String list() {
 		Paginate paginate = new Paginate(start, limit);
-		Collection<Columns> columnss = columnsService.findColumnsByExample(columns, paginate, sort, dir);
+		Collection<Columns> columnss = columnsService.findColumnsByExample(
+				columns, paginate, sort, dir);
 		HashMap data = new HashMap();
 		data.put("total", paginate.getTotal());
 		data.put("columnss", columnss);
@@ -27,7 +28,7 @@ public class ColumnsAction extends ExtBaseAction {
 	}
 
 	public String load(String id) {
-		if(id!=null)
+		if (id != null)
 			columns = columnsService.getColumns(Integer.parseInt(id));
 		return toJson(columns);
 	}
@@ -37,10 +38,16 @@ public class ColumnsAction extends ExtBaseAction {
 		return toJson(null);
 	}
 
+	public String findAllColumn() {
+		Collection<Columns> columns = columnsService.findAllColumn();
+		HashMap<String, Object> data = new HashMap<String, Object>();
+		data.put("columns", columns);
+		return toJson(data);
+	}
+
 	public String delete(String ids) {
 		columnsService.delete(ids);
 		return toJson(null);
 	}
 
-	
 }

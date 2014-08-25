@@ -13,7 +13,7 @@
 	<path>
 		<uploadPath>uploaditempic/</uploadPath>
 		<itemImg>uploaditempic/</itemImg>
-		<webRoot>D:\workspace\itv\src\main\webapp/</webRoot>
+		<webRoot>D:\git\yuer\YuerServer\src\main\webapp/</webRoot>
 	</path>
 	<!-- itv的web service参数 -->
 	<sp>

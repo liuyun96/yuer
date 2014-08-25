@@ -28,7 +28,6 @@ public class IndexAction extends BaseAction {
 	public void logout() {
 		getSession().remove("USER_IN_SESSION_KEY");
 		getRequest().getSession().invalidate();
-		getSession().remove(Constant.session_shop);
 		getSession().remove("itvIp");
 		CookieUtils.deleteCookie("USER_ID", getRequest(), getResponse());
 		render("index.html");

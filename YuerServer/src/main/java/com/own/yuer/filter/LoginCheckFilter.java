@@ -4,10 +4,15 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import cn.quickj.AbstractApplication;
 import cn.quickj.action.Action;
+import cn.quickj.extui.action.bean.SessionUser;
 import cn.quickj.filter.ActionFilter;
+import cn.quickj.security.model.User;
+import cn.quickj.security.service.UserService;
 
 import com.own.yuer.uitls.Constant;
+import com.own.yuer.uitls.CookieUtils;
 
 public class LoginCheckFilter implements ActionFilter {
 	/**
@@ -17,7 +22,7 @@ public class LoginCheckFilter implements ActionFilter {
 	/**
 	 * 需要跳过的uri
 	 */
-	private String[] ignores = { "/index", "/wap" };
+	private String[] ignores = {};
 	/**
 	 * 买家直接访问
 	 */
@@ -40,8 +45,7 @@ public class LoginCheckFilter implements ActionFilter {
 			ip = request.getRemoteAddr();
 		}
 		// 用户领券
-		if (uri.startsWith("/itv") || uri.startsWith("/index/")
-				|| uri.startsWith("/index2/")|| uri.startsWith("/web/")) {
+		if (uri.startsWith("/index/") || uri.startsWith("/web/")) {
 			return ActionFilter.NEED_PROCESS;
 		}
 		// 判断是否买家操作
@@ -52,7 +56,7 @@ public class LoginCheckFilter implements ActionFilter {
 					return ActionFilter.NEED_PROCESS;
 				}
 			}
-				return ActionFilter.NEED_PROCESS;
+			return ActionFilter.NEED_PROCESS;
 		}
 		for (String ignore : ignores) {
 			if (uri.startsWith(ignore)) {
@@ -63,9 +67,22 @@ public class LoginCheckFilter implements ActionFilter {
 		if (action.getAttribute(Constant.session_user) != null) {
 			return ActionFilter.NEED_PROCESS;
 		} else {
-			action.redirect(action.getCtx() + "/cms/index");
+			UserService userService = AbstractApplication.injector
+					.getInstance(UserService.class);
+			String userId = CookieUtils.getCookie("USER_ID",
+					action.getRequest(), action.getResponse());
+			// cookie里面存在就直接到取出
+			if (userId != null) {
+				User user = userService.getUser(Integer.valueOf(userId));
+				SessionUser sessionUser = userService.getSessionUser(user);
+				action.setAttribute(Constant.session_user, sessionUser);
+				return ActionFilter.NEED_PROCESS;
+			} else {
+				// 卖家过期了
+				action.redirect(action.getCtx() + "/cms/index");
+				return ActionFilter.NO_PROCESS;
+			}
 		}
-		return ActionFilter.NEED_PROCESS;
 	}
 
 	public void init(HashMap<String, String> params) {
