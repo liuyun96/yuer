@@ -87,10 +87,9 @@
 	var userName='${session.USER_IN_SESSION_KEY.userName}';
 	var itvIp = '${session.itvIp!'http://61.160.131.58:84'}';
 	
-	var del_bl = false;
-	var add_bl = false;
-	var edit_bl = false;
-	var is_dx = false; // 页面跟页面组件管理的编辑按钮控制
+	var del_bl = true;
+	var add_bl = true;
+	var edit_bl = true;
 
 <#if userInfo??>
 	<#list userInfo.roles as role>
@@ -107,9 +106,7 @@
 </#if>
 
 var userName = '${session.USER_IN_SESSION_KEY.userName}';
-if(userName.indexOf('dx')!=-1){
-	is_dx = true;
-}
+
 </script>
 	</head>
 	<body>
