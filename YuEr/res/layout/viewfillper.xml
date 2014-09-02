@@ -8,7 +8,7 @@
     <ViewFlipper
         android:id="@+id/mflipper"
         android:layout_width="fill_parent"
-        android:layout_height="262px"
+        android:layout_height="wrap_content"
         android:inAnimation="@anim/push_left_in"
         android:outAnimation="@anim/push_left_out" >
     </ViewFlipper>
@@ -18,46 +18,30 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center"
-        android:paddingBottom="10px"
-        android:paddingTop="10px"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:stretchColumns="*" >
 
         <TableRow android:layout_gravity="center" >
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_1"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_1" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_2"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_2" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_3"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_3" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_4"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_4" />
         </TableRow>
 
@@ -82,47 +66,31 @@
 
         <TableRow>
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_5"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_5" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_6"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_6" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_7"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_7" />
 
-            <ImageView
+            <ImageButton
                 android:id="@id/index_btn_8"
-                android:layout_width="0.0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1.0"
-                android:onClick="clickBtn"
-                android:scaleType="fitCenter"
+                style="@style/index_image_button"
                 android:src="@drawable/index_btn_8" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 style="@style/index_text"
-                android:gravity="center"
                 android:text="新生儿" />
 
             <TextView
@@ -139,21 +107,14 @@
         </TableRow>
     </TableLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingBottom="10px"
-        android:paddingTop="10px" >
-    </LinearLayout>
-
     <TextView
-        android:layout_width="200px"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:paddingBottom="10dp"
         android:text="好文推荐"
         android:textColor="@color/black"
         android:textDirection="ltr"
-        android:textSize="18dp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

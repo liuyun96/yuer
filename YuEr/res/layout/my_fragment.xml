@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="fill_parent"
-    android:background="#ffffffff" >
+    android:background="@color/background" >
 
     <RelativeLayout
         android:id="@id/titlebar"
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:text="宝贝性别："
                         android:textColor="@color/black"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/myname"
@@ -65,9 +65,10 @@
                         android:paddingLeft="5dp"
                         android:text="女"
                         android:textColor="@color/black"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                     <Button
+                        android:layout_width="55dp"
                         android:layout_height="35dp"
                         android:text="修改" />
                 </TableRow>
@@ -80,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:text="宝贝生日："
                         android:textColor="@color/black"
-                        android:textSize="13dp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         style="@style/text_left"
@@ -94,7 +95,7 @@
             android:id="@+id/my_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="10dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -121,7 +122,7 @@
             android:id="@+id/my_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -148,7 +149,7 @@
             android:id="@+id/my_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -175,7 +176,7 @@
             android:id="@+id/my_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -202,7 +203,7 @@
             android:id="@+id/my_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -229,7 +230,7 @@
             android:id="@+id/my_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -256,7 +257,7 @@
             android:id="@+id/my_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -279,7 +280,7 @@
             android:id="@+id/my_suggest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -302,7 +303,7 @@
             android:id="@+id/my_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView
@@ -325,7 +326,7 @@
             android:id="@+id/my_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="5dp"
             android:onClick="clickRow" >
 
             <ImageView

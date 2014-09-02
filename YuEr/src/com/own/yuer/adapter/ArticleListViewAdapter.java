@@ -44,7 +44,7 @@ public class ArticleListViewAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = inflater.inflate(R.layout.item, null);
+			convertView = inflater.inflate(R.layout.article_item, null);
 			holder.title = (TextView) convertView
 					.findViewById(R.id.article_title);
 			holder.img = (ImageView) convertView.findViewById(R.id.article_img);

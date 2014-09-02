@@ -10,62 +10,62 @@
         layout="@layout/search_head" />
 
     <LinearLayout
-        android:layout_width="140dp"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/titlebar" >
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlebar"
+        android:orientation="horizontal" >
 
         <ListView
             android:id="@+id/nav_list"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:listSelector="@color/red"
-            android:footerDividersEnabled="false"
+            android:layout_marginTop="30dp"
+            android:layout_weight="4"
             android:divider="@null"
             android:dividerHeight="0px"
+            android:footerDividersEnabled="false"
+            android:listSelector="@color/red"
             android:paddingLeft="3dp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/titlebar"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-
-        <TextView
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="热门搜索"
-            android:textColor="@color/red"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            android:layout_weight="6"
+            android:orientation="vertical" >
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:stretchColumns="*" >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="热门搜索"
+                android:textColor="@color/red"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-            <TableRow>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:stretchColumns="*" >
 
-                <TextView
-                    style="@style/search_keyword"
-                    android:clickable="true"
-                    android:onClick="clickKey"
-                    android:text="月经不调" />
+                <TableRow>
 
-                <TextView
-                    style="@style/search_keyword"
-                    android:clickable="true"
-                    android:onClick="clickKey"
-                    android:text="痛经" />
-            </TableRow>
-        </TableLayout>
+                    <TextView
+                        style="@style/search_keyword"
+                        android:clickable="true"
+                        android:onClick="clickKey"
+                        android:text="月经不调" />
+
+                    <TextView
+                        style="@style/search_keyword"
+                        android:clickable="true"
+                        android:onClick="clickKey"
+                        android:text="痛经" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

@@ -12,23 +12,16 @@
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
-        <ImageView
+        <ImageButton
+            android:layout_width="30dp"
             android:id="@+id/back_search"
-            style="@style/head_img"
+            style="@style/head_left_btn"
             android:onClick="backSearch" />
 
         <EditText
             android:id="@+id/searchText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="105dp"
-            android:layout_weight="5"
-            android:background="@null"
-            android:hint="请输入关键字搜索"
-            android:maxLines="1"
-            android:textColor="@null" >
+            style="@style/search_edit_text" >
         </EditText>
-
     </LinearLayout>
 
     <LinearLayout

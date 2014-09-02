@@ -53,7 +53,7 @@ public class ArticleListActivity extends BaseActivity implements
 		handler = new Handler();
 		loadArticles(10);
 		// ÊµÀý»¯SimpleAdapter
-		mSimpleAdapter = new SimpleAdapter(this, list, R.layout.item,
+		mSimpleAdapter = new SimpleAdapter(this, list, R.layout.article_item,
 				new String[] { "img", "title", "readCount", "likeCount" },
 				new int[] { R.id.article_img, R.id.article_title,
 						R.id.article_readCount, R.id.article_likeCount });

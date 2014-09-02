@@ -3,24 +3,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:onClick="loadItem"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/tuan_title"
-        style="@style/tuan_title" />
+        style="@style/tuan_title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="爱婴室北亲婴儿爽身粉" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:orientation="horizontal" >
 
-        <RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/tuan_layout"
+            android:layout_width="0dip"
+            android:layout_height="175dp"
+            android:layout_weight="1" >
+
             <TextView
-                android:id="@+id/tuan_detail"
-                style="@style/article_read" />
+                android:id="@+id/tuan_subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:text="仅售36仅售36仅售36仅售36仅售36仅售36.."
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/red" >
+
+                <TextView
+                    android:id="@+id/tuan_barginPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical"
+                    android:text="￥ 36"
+                    android:textColor="@color/white"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/tuan_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:text="7.5折"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tuan_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dp"
+                    android:paddingTop="30dp"
+                    android:text="原价：48"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </RelativeLayout>
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/tuan_img"
+            android:layout_width="0dip"
+            android:layout_height="175dp"
+            android:layout_weight="1"
+            android:src="@drawable/tuan_img" />
     </LinearLayout>
 
 </LinearLayout>
