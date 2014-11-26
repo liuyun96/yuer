@@ -9,7 +9,7 @@ import cn.quickj.annotation.Filter;
 import com.google.inject.Module;
 
 //AuthCheckFilter:page=index.html,ignore=/auth;
-@Filter(name = "TimeFilter;StaticParamFilter;LoginCheckFilter:page=index,ignore=/index|/extui/user/listAll/login|/extui/verifycode|/extui/main/checkVerifyCode|/extui/main/login|/extui/main/logout|/autoUpdateFlow|/cms/index|/cms/flash/uploadImg|/wap")
+@Filter(name = "TimeFilter;StaticParamFilter;LoginCheckFilter:page=index,ignore=/index|/app|/extui/user/listAll/login|/extui/verifycode|/extui/main/checkVerifyCode|/extui/main/login|/extui/main/logout|/autoUpdateFlow|/cms/index|/cms/flash/uploadImg|/wap")
 public class Application extends AbstractApplication {
 
 	@Override

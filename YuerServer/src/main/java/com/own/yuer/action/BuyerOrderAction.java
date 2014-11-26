@@ -1,4 +1,4 @@
-﻿package com.own.yuer.action;
+package com.own.yuer.action;
 
 import java.util.Collection;
 import java.util.HashMap;

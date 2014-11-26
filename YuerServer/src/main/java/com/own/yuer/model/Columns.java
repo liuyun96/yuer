@@ -1,4 +1,4 @@
-﻿package com.own.yuer.model;
+package com.own.yuer.model;
 
 // Generated from PowerDesigner file ,Written by lbj.
 

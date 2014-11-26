@@ -23,13 +23,15 @@ public class IndexAction extends BaseAction {
 
 	private String username;
 	private String password;
-	//private Integer pwdUselessNum;// 密码失效天数
+
+	// private Integer pwdUselessNum;// 密码失效天数
 
 	public void logout() {
-		getSession().remove("USER_IN_SESSION_KEY");
+		getSession().remove(Constant.session_user);
 		getRequest().getSession().invalidate();
-		getSession().remove("itvIp");
-		CookieUtils.deleteCookie("USER_ID", getRequest(), getResponse());
+		getSession().remove(Constant.session_ipNomal);
+		CookieUtils.deleteCookie(Constant.cookie_USER_ID, getRequest(),
+				getResponse());
 		render("index.html");
 	}
 
@@ -45,21 +47,19 @@ public class IndexAction extends BaseAction {
 		user = userService.login(username, password);
 		Map data = new HashMap();
 		if (user != null) {
-			if (!"admin".equals(username) && user.getDeadLogin() != null
+			if (user.getDeadLogin() != null
 					&& user.getDeadLogin().getTime() < getDate().getTime()) {
 				data.put("targetUrl", "");
 				data.put("msgs", "密码已失效");
 			} else {
-				if ("admin".equals(username)){
-					// 可以保留一个月
-					CookieUtils.setCookie(Constant.cookie_USER_ID, user.getId().toString(),
-							60 * 24 * 30, getRequest(), getResponse());
-				}else{
-					CookieUtils.deleteCookie(Constant.cookie_USER_ID,getRequest(), getResponse());
-				}
+				// 可以保留一个月
+				CookieUtils.setCookie(Constant.cookie_USER_ID, user.getId()
+						.toString(), 60 * 24 * 30, getRequest(), getResponse());
 				// 修改登入时间
 				user.setLastLogin(getDate());
-				getSession().set(Constant.session_user, userService.getSessionUser(user));
+				setAttribute(Constant.session_user,
+						userService.getSessionUser(user));
+				setAttribute(Constant.session_ipNomal, config.ipNomal);
 				userService.update(user);
 				data.put("msgs", "true");
 				data.put("targetUrl", "extui/main/index");

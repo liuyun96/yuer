@@ -1,4 +1,4 @@
-﻿package com.own.yuer.service;
+package com.own.yuer.service;
 
 // Generated from PowerDesigner file ,Written by lbj.
 
@@ -16,6 +16,7 @@ import cn.quickj.annotation.Transaction;
 import cn.quickj.hibernate.HibernateTemplate;
 
 import com.own.yuer.model.Article;
+import com.own.yuer.uitls.YuerUtils;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -66,6 +67,7 @@ public class ArticleService {
 			article.setCreateTime(new Date());
 		}
 		article.setUpdateTime(new Date());
+		article.setContent(YuerUtils.uploadImgs(article.getContent()));
 		ht.save(article);
 	}
 

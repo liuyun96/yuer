@@ -5,12 +5,14 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import cn.quickj.AbstractApplication;
+import cn.quickj.Setting;
 import cn.quickj.action.Action;
 import cn.quickj.extui.action.bean.SessionUser;
 import cn.quickj.filter.ActionFilter;
 import cn.quickj.security.model.User;
 import cn.quickj.security.service.UserService;
 
+import com.own.yuer.Config;
 import com.own.yuer.uitls.Constant;
 import com.own.yuer.uitls.CookieUtils;
 
@@ -73,9 +75,11 @@ public class LoginCheckFilter implements ActionFilter {
 					action.getRequest(), action.getResponse());
 			// cookie里面存在就直接到取出
 			if (userId != null) {
+				Config config = (Config) Setting.appconfig;
 				User user = userService.getUser(Integer.valueOf(userId));
 				SessionUser sessionUser = userService.getSessionUser(user);
 				action.setAttribute(Constant.session_user, sessionUser);
+				action.setAttribute(Constant.session_ipNomal, config.ipNomal);
 				return ActionFilter.NEED_PROCESS;
 			} else {
 				// 卖家过期了

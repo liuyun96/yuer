@@ -1,4 +1,4 @@
-﻿package com.own.yuer.action;
+package com.own.yuer.action;
 
 import java.io.File;
 import java.io.IOException;

@@ -91,6 +91,8 @@
 			name : 'source'
 		}, {
 			name : 'url'
+		}, {
+			name : 'position'
 		} ],
 		remoteSort : true,
 		stripeRows : true,
@@ -108,149 +110,187 @@
 		return true;
 	});
 
-	var grid = new Ext.grid.GridPanel({
-		store : store,
-		flex : 1,
-		border : false,
-		cm : new Ext.grid.ColumnModel({
-			columns : [
-					sm,
-					{
-						id : 'yulan',
-						header : '预览',
-						width : 80,
-						sortable : true,
-						dataIndex : 'id',
-						renderer : function(v) {
-							return '<a href="/web/article/' + v
-									+ '" target="_blank">查看文章</a>';
-						}
-					}, {
-						id : 'url',
-						header : '链接地址',
-						width : 80,
-						sortable : true,
-						dataIndex : 'id',
-						renderer : function(v) {
-							return 'web/article/' + v;
-						}
-					}, {
-						id : 'id',
-						header : '文章编号',
-						width : 80,
-						hidden : true,
-						sortable : true,
-						dataIndex : 'id'
-					}, {
-						id : 'columnName',
-						header : '栏目',
-						width : 80,
-						sortable : true,
-						dataIndex : 'columnName'
-					}, {
-						id : 'subjectName',
-						header : '专题名称',
-						sortable : true,
-						dataIndex : 'subjectName'
-					}, {
-						id : 'title',
-						header : '文章标题',
-						width : 80,
-						sortable : true,
-						dataIndex : 'title'
-					}, {
-						id : 'author',
-						header : '作者',
-						width : 80,
-						sortable : true,
-						dataIndex : 'author'
-					}, {
-						id : 'img',
-						header : '图片',
-						width : 80,
-						sortable : true,
-						dataIndex : 'img'
-					}, {
-						id : 'status',
-						header : '状态',
-						width : 80,
-						sortable : true,
-						dataIndex : 'status',
-						renderer : function(v) {
-							return v ? '上线' : '待审核';
-						}
-					}, {
-						id : 'clickTimes',
-						header : '点击次数',
-						width : 80,
-						sortable : true,
-						dataIndex : 'clickTimes'
-					}, {
-						id : 'shareTimes',
-						header : '分享次数',
-						width : 80,
-						sortable : true,
-						dataIndex : 'shareTimes'
-					}, {
-						id : 'favTimes',
-						header : '收藏次数',
-						width : 80,
-						sortable : true,
-						dataIndex : 'favTimes'
-					}, {
-						id : 'keyword',
-						header : '关键字',
-						width : 80,
-						sortable : true,
-						dataIndex : 'keyword'
-					}, {
-						id : 'createTime',
-						header : '创建时间',
-						width : 120,
-						sortable : true,
-						dataIndex : 'createTime',
-						renderer : function(v) {
-							if (v != null) {
-								return new Date(v).format('Y-m-d')
+	var grid = new Ext.grid.GridPanel(
+			{
+				store : store,
+				flex : 1,
+				border : false,
+				cm : new Ext.grid.ColumnModel(
+						{
+							columns : [
+									sm,
+									{
+										id : 'yulan',
+										header : '预览',
+										width : 80,
+										sortable : true,
+										dataIndex : 'id',
+										renderer : function(v) {
+											return '<a href="/web/article/'
+													+ v
+													+ '" target="_blank">查看文章</a>';
+										}
+									},
+									{
+										id : 'url',
+										header : '链接地址',
+										width : 80,
+										sortable : true,
+										dataIndex : 'id',
+										renderer : function(v) {
+											return 'web/article/' + v;
+										}
+									},
+									{
+										id : 'id',
+										header : '文章编号',
+										width : 80,
+										hidden : true,
+										sortable : true,
+										dataIndex : 'id'
+									},
+									{
+										id : 'columnName',
+										header : '栏目',
+										width : 80,
+										sortable : true,
+										dataIndex : 'columnName'
+									},
+									{
+										id : 'subjectName',
+										header : '专题名称',
+										sortable : true,
+										dataIndex : 'subjectName'
+									},
+									{
+										id : 'title',
+										header : '文章标题',
+										width : 80,
+										sortable : true,
+										dataIndex : 'title'
+									},
+									{
+										id : 'author',
+										header : '作者',
+										width : 80,
+										sortable : true,
+										dataIndex : 'author'
+									},
+									{
+										id : 'img',
+										header : '图片',
+										width : 80,
+										sortable : true,
+										dataIndex : 'img',
+										renderer : function(v) {
+											if (v == null || v == '')
+												return '';
+											else
+												return '<img onmouseOver=MsgBox.showImg(this,"/'
+														+ v
+														+ '") style="width:65px;" src="'
+														+ ip_nomal
+														+ '/'
+														+ v
+														+ '"/>';
+										}
+									},
+									{
+										id : 'status',
+										header : '状态',
+										width : 80,
+										sortable : true,
+										dataIndex : 'status',
+										renderer : function(v) {
+											return v ? '上线' : '待审核';
+										}
+									},
+									{
+										id : 'clickTimes',
+										header : '点击次数',
+										width : 80,
+										sortable : true,
+										dataIndex : 'clickTimes'
+									},
+									{
+										id : 'shareTimes',
+										header : '分享次数',
+										width : 80,
+										sortable : true,
+										dataIndex : 'shareTimes'
+									},
+									{
+										id : 'favTimes',
+										header : '收藏次数',
+										width : 80,
+										sortable : true,
+										dataIndex : 'favTimes'
+									},
+									{
+										id : 'keyword',
+										header : '关键字',
+										width : 80,
+										sortable : true,
+										dataIndex : 'keyword'
+									},
+									{
+										id : 'position',
+										header : '展示位置',
+										width : 80,
+										sortable : true,
+										dataIndex : 'position'
+									},
+									{
+										id : 'createTime',
+										header : '创建时间',
+										width : 120,
+										sortable : true,
+										dataIndex : 'createTime',
+										renderer : function(v) {
+											if (v != null) {
+												return new Date(v)
+														.format('Y-m-d')
+											}
+										}
+									},
+									{
+										id : 'updateTime',
+										header : '修改时间',
+										width : 120,
+										sortable : true,
+										dataIndex : 'updateTime',
+										renderer : function(v) {
+											if (v != null) {
+												return new Date(v)
+														.format('Y-m-d')
+											}
+										}
+									} ],
+							defaults : {
+								sortable : true,
+								menuDisabled : false,
+								align : 'center',
+								width : 100
 							}
-						}
-					}, {
-						id : 'updateTime',
-						header : '修改时间',
-						width : 120,
-						sortable : true,
-						dataIndex : 'updateTime',
-						renderer : function(v) {
-							if (v != null) {
-								return new Date(v).format('Y-m-d')
-							}
-						}
-					} ],
-			defaults : {
-				sortable : true,
-				menuDisabled : false,
-				align : 'center',
-				width : 100
-			}
-		}),
-		loadMask : false,
-		sm : sm,
-		// paging bar on the bottom
-		bbar : new Ext.PagingToolbar({
-			pageSize : pagesize,
-			store : store,
-			beforePageText : "当前第",
-			afterPageText : "页，共{0}页",
-			lastText : "尾页",
-			nextText : "下一页",
-			prevText : "上一页",
-			firstText : "首页",
-			refreshText : "刷新页面",
-			displayInfo : true,
-			displayMsg : "当前显示 {0} - {1}条, 共 {2}",
-			emptyMsg : "没有记录"
-		})
-	});
+						}),
+				loadMask : false,
+				sm : sm,
+				// paging bar on the bottom
+				bbar : new Ext.PagingToolbar({
+					pageSize : pagesize,
+					store : store,
+					beforePageText : "当前第",
+					afterPageText : "页，共{0}页",
+					lastText : "尾页",
+					nextText : "下一页",
+					prevText : "上一页",
+					firstText : "首页",
+					refreshText : "刷新页面",
+					displayInfo : true,
+					displayMsg : "当前显示 {0} - {1}条, 共 {2}",
+					emptyMsg : "没有记录"
+				})
+			});
 	// 查询表单
 	var searchForm = new Ext.form.FormPanel({
 		width : bWidth,
@@ -372,6 +412,8 @@
 			id : 'articleform',
 			autoWidth : true,
 			padding : '10 10 20 10',
+			enctype : 'multipart/form-data',
+			fileUpload : true,
 			defaults : {
 				anchor : '50%',
 				xtype : 'textfield',
@@ -429,10 +471,6 @@
 						id : 'author',
 						fieldLabel : '作者'
 					}, {
-						name : 'article.img',
-						id : 'img',
-						fieldLabel : '图片'
-					}, {
 						name : 'article.createTime',
 						id : 'createTime',
 						format : 'Y-m-d H:i:s',
@@ -446,24 +484,6 @@
 						format : 'Y-m-d H:i:s',
 						xtype : 'datefield',
 						fieldLabel : '修改时间'
-					}, {
-						xtype : 'combo',
-						typeAhead : true,
-						triggerAction : 'all',
-						allowBlank : false,
-						hiddenName : 'article.status',
-						id : 'status',
-						lazyRender : true,
-						editable : false,
-						mode : 'local',
-						store : new Ext.data.ArrayStore({
-							id : 0,
-							fields : [ 'label', 'value' ],
-							data : [ [ '上线', 1 ], [ '待审核', 0 ] ]
-						}),
-						valueField : 'value',
-						displayField : 'label',
-						fieldLabel : '状态'
 					}, {
 						name : 'article.clickTimes',
 						id : 'clickTimes',
@@ -491,6 +511,55 @@
 						anchor : '100%',
 						fieldLabel : '原链接'
 					}, {
+						xtype : 'combo',
+						typeAhead : true,
+						triggerAction : 'all',
+						allowBlank : false,
+						hiddenName : 'article.position',
+						id : 'position',
+						lazyRender : true,
+						editable : false,
+						mode : 'local',
+						store : new Ext.data.ArrayStore({
+							id : 0,
+							fields : [ 'label', 'value' ],
+							data : [ [ '其他', '其他' ], [ '好文推荐', '好文推荐' ] ]
+						}),
+						valueField : 'value',
+						displayField : 'label',
+						fieldLabel : '展示位置'
+					}, {
+						xtype : 'combo',
+						typeAhead : true,
+						triggerAction : 'all',
+						allowBlank : false,
+						hiddenName : 'article.status',
+						id : 'status',
+						lazyRender : true,
+						editable : false,
+						mode : 'local',
+						store : new Ext.data.ArrayStore({
+							id : 0,
+							fields : [ 'label', 'value' ],
+							data : [ [ '上线', 1 ], [ '待审核', 0 ] ]
+						}),
+						valueField : 'value',
+						displayField : 'label',
+						fieldLabel : '状态'
+					}, {
+						name : 'article.img',
+						id : 'img',
+						hidden : true,
+						fieldLabel : '图片'
+					}, new Ext.form.TextField({
+						xtype : 'fileuploadfield',
+						fieldLabel : '图片上传 (标准尺寸140*117)',
+						anchor : '45%',
+						name : 'imgFile',
+						text : '添加图片',
+						id : 'pic',
+						inputType : 'file'
+					}), {
 						name : 'article.content',
 						id : 'content',
 						height : bHeight / 3,

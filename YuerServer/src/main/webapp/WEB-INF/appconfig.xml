@@ -2,55 +2,19 @@
 	<class>com.own.yuer.Config</class>
 	<model>local</model>
 	<ip>http://127.0.0.1</ip>
-	<store>
-		<!-- 测试页面的存放路径 -->
-		<wapPagesTestStorePath>D:/workspace/wfw/src/main/webapp/templates/
-		</wapPagesTestStorePath>
-		<!-- 发布页面的存放路径 -->
-		<wapPagesPublishedStorePath>D:/workspace/wfwTest/src/main/webapp/templates/
-		</wapPagesPublishedStorePath>
-	</store>
 	<path>
 		<uploadPath>uploaditempic/</uploadPath>
 		<itemImg>uploaditempic/</itemImg>
 		<webRoot>D:\git\yuer\YuerServer\src\main\webapp/</webRoot>
 	</path>
-	<!-- itv的web service参数 -->
-	<sp>
-		<!-->ip>http://58.223.251.137:8294</ip> <id>spa00005</id -->
-		<ip>http://58.223.251.139:8297</ip>
-		<id>spa00056</id>
-		<!-- 用户session过期，或者token失效跳转的页面 -->
-		<url>http://58.223.226.67:8080/iptvepg/frame143/portal.jsp</url>
-		<baoyue>productIDa3000000000000000217962</baoyue>
-		<baoyue10>productIDa9000000000000000219311</baoyue10>
-		<dianbo>productIDa3000000000000000217410</dianbo>
-		<!-- 联众订购ip -->
-		<!-- http://61.160.131.15:9296/ http://61.160.131.12:8296 -->
-		<orderip>http://61.160.131.12:8296</orderip>
-		<!--3DES加密密钥Key -->
-		<!-- SP0000011234567890123456 -->
-		<key>dds4357DFDAEDYJDSY</key>
-		<!-- MD5密码 -->
-		<md5key>P98IRE43oire943gol4wd4if</md5key>
-	</sp>
+	<ip>
+		<nomal>http://127.0.0.1</nomal>	    
+	</ip>
 	<itv>
-		<url>http://jshwd.com:84/</url>
+		<url>http://121.40.150.11:9000/</url>
 		<log>D:/accessLogs/itv/</log>
 		<logC>D:/accessLogs/itvC/</logC>
 		<ip>http://127.0.0.1</ip>
 		<version>0</version>
-		<!-- 采集的ip -->
-		<gatherip>http://61.160.131.15:9298/gatherEpg?</gatherip>
 	</itv>
-	<msg>
-		<spid>11103794</spid>
-		<wsAddress>http://58.223.0.139:9081/SendSmsService</wsAddress>
-		<!-- 产品编号,1开头 -->
-		<productID>111000000000000175339</productID>
-		<!-- 业务编号,2开头 -->
-		<serviceID>211000000000000007791</serviceID>
-		<!-- 短信主叫号码，在浙江ISAG实际无效，ISAG会读 取业务部署时候的接入号 -->
-		<senderName>1065966401</senderName>
-	</msg>
 </config>

@@ -1,4 +1,4 @@
-﻿package com.own.yuer.service;
+package com.own.yuer.service;
 
 // Generated from PowerDesigner file ,Written by lbj.
 

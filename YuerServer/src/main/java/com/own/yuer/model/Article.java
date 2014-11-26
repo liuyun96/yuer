@@ -1,4 +1,4 @@
-﻿package com.own.yuer.model;
+package com.own.yuer.model;
 
 // Generated from PowerDesigner file ,Written by lbj.
 
@@ -54,7 +54,7 @@ public class Article implements Serializable {
 	/**
 	 * 状态
 	 */
-	private Boolean status;
+	private Integer status;
 	/**
 	 * 点击次数
 	 */
@@ -67,6 +67,12 @@ public class Article implements Serializable {
 	 * 收藏次数
 	 */
 	private Integer favTimes;
+
+	/**
+	 * 点赞次数
+	 */
+	private Integer likeTimes;
+
 	/**
 	 * 关键字
 	 */
@@ -81,6 +87,11 @@ public class Article implements Serializable {
 	 * 原文章链接
 	 */
 	private String url;
+
+	/**
+	 * 位置
+	 */
+	private String position;
 
 	public Article() {
 	}
@@ -230,16 +241,14 @@ public class Article implements Serializable {
 	 */
 
 	@Column(name = "STATUS")
-	public Boolean getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	/**
-	 * 设置状态
-	 */
-	public void setStatus(Boolean status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
 
 	/**
 	 * 获取点击次数
@@ -249,6 +258,7 @@ public class Article implements Serializable {
 	public Integer getClickTimes() {
 		return clickTimes;
 	}
+
 
 	/**
 	 * 设置点击次数
@@ -289,6 +299,15 @@ public class Article implements Serializable {
 		this.favTimes = favTimes;
 	}
 
+	@Column(name = "like_times")
+	public Integer getLikeTimes() {
+		return likeTimes;
+	}
+
+	public void setLikeTimes(Integer likeTimes) {
+		this.likeTimes = likeTimes;
+	}
+
 	/**
 	 * 获取关键字
 	 */
@@ -321,6 +340,15 @@ public class Article implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	@Column(name = "position")
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 }

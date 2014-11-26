@@ -7,6 +7,10 @@ import com.own.yuer.service.WebService;
 import cn.quickj.extui.action.ExtBaseAction;
 
 public class IndexAction extends ExtBaseAction {
+	
+	/**
+	 * app 数据访问
+	 */
 
 	@Inject
 	WebService webService;
@@ -34,6 +38,8 @@ public class IndexAction extends ExtBaseAction {
 	public void login() {
 
 	}
+	
+	
 
 	public String getPagePath() {
 		return pagePath;
