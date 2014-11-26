@@ -27,6 +27,8 @@ import com.own.yuer.adapter.ArticleListViewAdapter;
 import com.own.yuer.bean.Article;
 import com.own.yuer.common.UIHelper;
 import com.own.yuer.db.ArticleService;
+import com.own.yuer.util.ConnectServer;
+import com.own.yuer.util.Constant;
 import com.own.yuer.view.MyImageView;
 
 public class HomeFragment extends ListFragment implements OnScrollListener {
@@ -47,7 +49,6 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 	private ViewFlipper flipper;
 	private Integer page = 0;
 	private ArticleService articleService;
-	private Integer pagesize = 10;
 	// 最后可见条目的索引
 	private int lastVisibleIndex;
 	private String tag = "HomeFragment";
@@ -129,22 +130,26 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 		}
 
 	}
-
+	
 	private void initData() {
 		selectorDialog.show();
 		new Thread() {
 			public void run() {
 				Message msg = new Message();
-				List<Article> list = articleService
-						.queryArticle(page, pagesize);
-				if (list.size() > 0) {
-					msg.obj = list;
-					msg.what = 1;
-					page++;
+				List<Article> list = ConnectServer.loadRecoArticles(page);
+				if (list != null) {
+					if (list.size() > 0) {
+						msg.obj = list;
+						msg.what = 1;
+						page++;
+					} else {
+						msg.what = -1;
+					}
 				} else {
 					msg.what = -1;
 				}
 				handler.sendMessage(msg);
+
 			}
 		}.start();
 	}
@@ -152,8 +157,11 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
-		Log.i(tag, "article_id" + id);
+		Log.i(tag, "article_id" + v.getId());
 		Intent intent = new Intent(getActivity(), ArticleActivity.class);
+		Bundle bundle = new Bundle();    
+	    bundle.putInt(Constant.extra_article_id, v.getId());   
+	    intent.putExtras(bundle);
 		startActivity(intent);
 	}
 
@@ -169,7 +177,7 @@ public class HomeFragment extends ListFragment implements OnScrollListener {
 		flipper = (ViewFlipper) listTop.findViewById(R.id.mflipper);
 		Log.d("debug", flipper.getTop() + "");
 		if (flipper != null) {
-			flipper.setFlipInterval(3000);
+			flipper.setFlipInterval(1000*60);
 			flipper.startFlipping();
 		}
 		for (int i = 0; i < 3; i++) {

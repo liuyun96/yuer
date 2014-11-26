@@ -57,8 +57,7 @@ public class ArticleListViewAdapter extends BaseAdapter {
 			// 优化了ui 避免加载过得的view
 			holder = (ViewHolder) convertView.getTag();
 		}
-		holder.title.setText(list.get(position).getTitle()
-				+ list.get(position).getId());
+		holder.title.setText(list.get(position).getTitle());
 		holder.likeCount.setText(list.get(position).getLikeCount().toString());
 		holder.readCount.setText(list.get(position).getReadCount().toString());
 		String imgURL = list.get(position).getImg();

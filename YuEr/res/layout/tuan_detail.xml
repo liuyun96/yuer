@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <ImageButton
+            android:id="@+id/tuan_detail_back"
+            style="@style/head_left_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="团购"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <ImageButton
+            style="@style/tuan_detail_buy"
+            android:src="@drawable/tuan_buy" />
+    </RelativeLayout>
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/toolbar"
+        android:layout_below="@id/titlebar" >
+    </WebView>
+
+    <RelativeLayout
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:paddingTop="5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/line" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="￥ 36"
+            android:textColor="@color/red"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="110dp"
+            android:paddingTop="15dp"
+            android:text="48"
+            android:textColor="@color/black"
+            android:textSize="23sp" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="80dp"
+            android:src="@drawable/my_send" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="50dp"
+            android:src="@drawable/my_fav" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="20dp"
+            android:src="@drawable/my_thumd" />
+    </RelativeLayout>
+
+</RelativeLayout>

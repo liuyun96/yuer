@@ -2,26 +2,22 @@ package com.own.yuer.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
+import android.webkit.WebView;
 import android.widget.ImageButton;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import com.own.yuer.R;
+import com.own.yuer.util.ConnectServer;
+import com.own.yuer.util.Constant;
 
-public class ArticleActivity extends Activity implements OnGestureListener,
-		OnTouchListener {
+public class ArticleActivity extends Activity {
 
-	private ViewFlipper viewFlipper;
 	private ImageButton button;
 	private String tag = "ArticleActivity";
 	private GestureDetector mGestureDetector;
+	private WebView webView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,62 +31,21 @@ public class ArticleActivity extends Activity implements OnGestureListener,
 				finish();
 			}
 		});
-		mGestureDetector = new GestureDetector(this);
-		viewFlipper = (ViewFlipper) findViewById(R.id.viewflipper);
-		viewFlipper.setOnTouchListener(this);
-		viewFlipper.startFlipping();
+		Bundle bundle = getIntent().getExtras();
+		int articleId = bundle.getInt(Constant.extra_article_id);
+		initWeb(articleId);
 	}
 
-	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-			float velocityY) {
-		Log.e(tag, "x:" + velocityX + "y:" + velocityY);
-		if (e1.getX() - e2.getX() > 50 && Math.abs(velocityX) > 0) {
-			Toast.makeText(this, "向左手势", Toast.LENGTH_SHORT).show();
-			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
-		} else if (e2.getX() - e1.getX() > 50 && Math.abs(velocityX) > 0) {
-			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
-			finish();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		// TODO Auto-generated method stub
-		mGestureDetector.onTouchEvent(event);
-		return true;
-	}
-
-	@Override
-	public boolean onDown(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onShowPress(MotionEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean onSingleTapUp(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-			float distanceY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onLongPress(MotionEvent e) {
-		// TODO Auto-generated method stub
-
+	// 缺点加载很慢
+	private void initWeb(int articleId) {
+		webView = (WebView) findViewById(R.id.article_webview);
+		webView.getSettings().setJavaScriptEnabled(true);
+		webView.loadUrl(ConnectServer.ip + "web/article/" + articleId);
+		/*
+		 * webView.setWebViewClient(new WebViewClient() { public boolean
+		 * shouldOverrideUrlLoading(WebView view, String url) {
+		 * view.loadUrl(url); return true; } });
+		 */
 	}
 
 }

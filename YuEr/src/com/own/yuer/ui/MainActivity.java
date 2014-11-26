@@ -3,21 +3,17 @@ package com.own.yuer.ui;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
@@ -29,7 +25,7 @@ import com.own.yuer.R;
 import com.own.yuer.common.UIHelper;
 import com.own.yuer.db.DBHelper;
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
 	private AppContext appContext;// 全局Context
 	RadioGroup radioGroup;
 	ImageView img;
@@ -50,7 +46,15 @@ public class MainActivity extends FragmentActivity{
 		if (!appContext.isNetworkConnected())
 			UIHelper.ToastMessage(this, R.string.network_not_connected);
 		setupIntent();
+		//getPhoneNumber();
+	}
 
+	private void getPhoneNumber() {
+		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		String imei = tm.getDeviceId();
+		String tel = tm.getLine1Number();
+		String imsi = tm.getSubscriberId();
+		Log.e(tag, "tel" + tel + "imei" + imei+"imsi"+imsi);
 	}
 
 	private void setupIntent() {
@@ -69,7 +73,7 @@ public class MainActivity extends FragmentActivity{
 				TuanFragment.class, null);
 		tabManager.addTab(createTabSpec("my", "我的", R.drawable.index_menu_4),
 				MyFragment.class, null);
-		
+
 	}
 
 	// 返回单个选项
@@ -117,7 +121,7 @@ public class MainActivity extends FragmentActivity{
 		default:
 			break;
 		}
-		Intent intent = new Intent(this, ArticleListActivity.class);
+		Intent intent = new Intent(this, SubjectActivity.class);
 		startActivity(intent);
 	}
 

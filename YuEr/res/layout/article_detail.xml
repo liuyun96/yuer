@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background" >
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_bg" >
+
+        <ImageButton
+            android:id="@+id/article_back"
+            style="@style/head_left_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="文章详情页"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/article_webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/toolbar"
+        android:layout_below="@id/titlebar" >
+    </WebView>
+
+    <RelativeLayout
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/line"
+            android:paddingTop="5dp" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="80dp"
+            android:src="@drawable/my_send" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="50dp"
+            android:src="@drawable/my_fav" />
+
+        <ImageButton
+            style="@style/tuan_detail_buttom"
+            android:paddingRight="20dp"
+            android:src="@drawable/my_thumd" />
+    </RelativeLayout>
+
+</RelativeLayout>

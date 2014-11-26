@@ -3,7 +3,9 @@ package com.own.yuer.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.own.yuer.R;
 
@@ -66,4 +68,6 @@ public class BaseActivity extends Activity {
 		super.finish();
 		overridePendingTransition(0, 0);
 	}
+
+	
 }

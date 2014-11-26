@@ -63,6 +63,10 @@
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.own.yuer.ui.SubjectActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.own.yuer.ui.MainActivity"
             android:configChanges="keyboardHidden|navigation|orientation"
             android:screenOrientation="portrait" />
@@ -85,6 +89,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 屏幕保持唤醒 不锁屏 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- 单元测试用的 -->
     <instrumentation
